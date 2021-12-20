@@ -15,6 +15,29 @@
 
 ---
 
+## Branch name style
+
+```
+<task_type>/task_name
+
+Examples:
+screen/login_screen
+bloc/auth_blocs
+api/connect_firebase
+```
+
+## Commit name style
+
+```
+<task_name>: description.
+
+Examples:
+login_screen: minor style fixes.
+connect_firebase: database package added.
+```
+
+---
+
 <br>
 
 ## Developed by 
