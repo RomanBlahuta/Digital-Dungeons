@@ -20,5 +20,5 @@
 ## Developed by 
 
 ### [Roman Blahuta](https://github.com/RomanBlahuta)
-### [Kateryna Detsyk]()
-### [Marian Dubei]()
+### [Kateryna Detsyk](https://github.com/KateDetsyk)
+### [Marian Dubei](http://github.com/MarianDubei)
