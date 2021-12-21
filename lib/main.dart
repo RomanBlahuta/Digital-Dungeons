@@ -1,3 +1,4 @@
+import 'package:digitaldungeons/screens/home_screen.dart';
 import 'package:digitaldungeons/screens/index.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       onGenerateRoute: (settings) {
-
         if (settings.name == DDRoutes.Welcome) {
+          // return MaterialPageRoute(builder: (context) => DDHomeScreen());
           return MaterialPageRoute(builder: (context) => DDWelcomeScreen('Home'));
         }
         else if (settings.name == 'sign-in') {
@@ -26,6 +27,9 @@ class MyApp extends StatelessWidget {
         }
         else if (settings.name == 'sign-up') {
           return MaterialPageRoute(builder: (context) => Text('Sign Up'));
+        }
+        else if (settings.name == DDRoutes.Home) {
+          return MaterialPageRoute(builder: (context) => DDHomeScreen());
         }
       }
     );
