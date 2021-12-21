@@ -1,4 +1,5 @@
 import 'package:digitaldungeons/screens/index.dart';
+import 'package:digitaldungeons/screens/sign-up_screen.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           return MaterialPageRoute(builder: (context) => Text('Sign In'));
         }
         else if (settings.name == 'sign-up') {
-          return MaterialPageRoute(builder: (context) => Text('Sign Up'));
+          return MaterialPageRoute(builder: (context) => DDSignUpScreen());
         }
       }
     );
