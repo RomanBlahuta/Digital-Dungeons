@@ -7,7 +7,7 @@ const blackColor = const Color(0xFF0A0A0A);
 const orangeColor = const Color(0xFFD08718);
 
 
-class AppTextFonts {
+class DDTextTheme {
   static const TextStyle Raleway20BlackSemiBold = TextStyle(
       color: blackColor,
       fontWeight: FontWeight.w600,
@@ -22,7 +22,6 @@ class AppTextFonts {
 
   static const TextStyle Raleway20BlackRegular = TextStyle(
       color: blackColor,
-      // fontWeight: FontWeight.w500,
       fontFamily: "Raleway",
       fontSize: 20);
 
