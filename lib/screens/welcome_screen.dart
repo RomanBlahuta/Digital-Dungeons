@@ -1,6 +1,7 @@
 import 'package:digitaldungeons/blocs/welcome/welcome_bloc.dart';
 import 'package:digitaldungeons/blocs/welcome/welcome_events.dart';
 import 'package:digitaldungeons/blocs/welcome/welcome_state.dart';
+import 'package:digitaldungeons/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,7 +23,7 @@ class WelcomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('You have pushed the button this many times:',),
+                Text('You have pushed the button this many times:'),
                 BlocBuilder<WelcomeBloc, WelcomeState>(
                   builder: (blocContext, state) => Text('${state.value}', style: Theme.of(context).textTheme.headline4,),
                 ),
