@@ -1,6 +1,7 @@
-import 'package:digitaldungeons/screens/welcome_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:digitaldungeons/screens/index.dart';
+import 'package:digitaldungeons/utils/navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,16 +10,22 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      
       onGenerateRoute: (settings) {
 
-        if (settings.name == '/') {
-          return CupertinoPageRoute(builder: (context) => WelcomeScreen('Home'));
+        if (settings.name == DDRoutes.Welcome) {
+          return MaterialPageRoute(builder: (context) => DDWelcomeScreen('Home'));
+        }
+        else if (settings.name == 'sign-in') {
+          return MaterialPageRoute(builder: (context) => Text('Sign In'));
+        }
+        else if (settings.name == 'sign-up') {
+          return MaterialPageRoute(builder: (context) => Text('Sign Up'));
         }
       }
     );

@@ -1,44 +1,90 @@
-import 'package:digitaldungeons/blocs/welcome/welcome_bloc.dart';
-import 'package:digitaldungeons/blocs/welcome/welcome_events.dart';
-import 'package:digitaldungeons/blocs/welcome/welcome_state.dart';
+import 'package:digitaldungeons/utils/index.dart';
+import 'package:digitaldungeons/utils/navigation.dart';
+import 'package:digitaldungeons/widgets/button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class DDWelcomeScreen extends StatelessWidget {
   final String title;
 
-  WelcomeScreen(this.title);
+  DDWelcomeScreen(this.title);
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<WelcomeBloc>(
-      create: (providerContext) => WelcomeBloc(),
-      child:Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-        ),
-        body: Builder(
-          builder: (context) => Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('You have pushed the button this many times:',),
-                BlocBuilder<WelcomeBloc, WelcomeState>(
-                  builder: (blocContext, state) => Text('${state.value}', style: Theme.of(context).textTheme.headline4,),
+    return Scaffold(
+        body: Stack(
+          children: <Widget>[
+            Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/DD_banner.png'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                FloatingActionButton(
-                  onPressed: () {
-                    print('Click!');
-                    context.read<WelcomeBloc>().add(WelcomeIncrementEvent());
-                  },
-                  tooltip: 'Increment',
-                  child: Icon(Icons.add),
-                ),
-              ],
+              )
             ),
-          ),
-        ), 
-      ),
-    );
+
+            Center(
+              child: Container(
+                color: DDTheme.overlayColor,
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+              ),
+            ),
+
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/DD_logo.png',
+                    width: 309,
+                  ),
+                  SizedBox(
+                    height: 51,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Text(
+                      'WELCOME TO DIGITAL DUNGEONS!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: DDTheme.primaryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 36,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 167,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      DDButton(
+                        text: 'SIGN IN', 
+                        color: DDTheme.primaryColor, 
+                        onPressed: () {Navigator.pushNamed(context, DDRoutes.SignIn);}, 
+                        size: DDButtonSizes.Large, 
+                        type: DDButtonType.Outlined
+                      ),
+                      SizedBox(
+                        width: 24,
+                      ),
+                      DDButton(
+                        text: 'SIGN UP', 
+                        color: DDTheme.primaryColor, 
+                        onPressed: () {Navigator.pushNamed(context, DDRoutes.SignUp);}, 
+                        size: DDButtonSizes.Large, 
+                        type: DDButtonType.Filled
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
   }
 }
