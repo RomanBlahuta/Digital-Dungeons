@@ -1,5 +1,5 @@
 class DDRoutes {
-  static String Welcome = '/';
-  static String SignIn = 'sign-in';
-  static String SignUp = 'sign-up';
+  static const String Welcome = '/';
+  static const String SignIn = 'sign-in';
+  static const String SignUp = 'sign-up';
 }

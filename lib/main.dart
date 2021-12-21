@@ -1,5 +1,5 @@
 import 'package:digitaldungeons/screens/index.dart';
-import 'package:digitaldungeons/utils/navigation.dart';
+import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

@@ -1,1 +1,1 @@
-// Constants will be here
+// Put constant variables in this file

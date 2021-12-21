@@ -6,14 +6,13 @@ import 'package:flutter/widgets.dart';
 class DDButtonSize {
   final double width;
   final double height;
-  final double fontSize;
 
-  const DDButtonSize(this.width, this.height, this.fontSize);
+  const DDButtonSize(this.width, this.height);
 }
 
 class DDButtonSizes {
-  static DDButtonSize Small = DDButtonSize(146, 46, 18);
-  static DDButtonSize Large = DDButtonSize(178, 53, 24);
+  static DDButtonSize Small = DDButtonSize(146, 46);
+  static DDButtonSize Large = DDButtonSize(178, 53);
 }
 
 enum DDButtonType {
@@ -26,9 +25,10 @@ class DDButton extends StatelessWidget {
   final String text;
   final DDButtonType type;
   final DDButtonSize size;
+  final TextStyle textStyle;
   final void Function() onPressed;
 
-  DDButton({Key? key, required this.text, required this.onPressed, required this.color, required this.type, required this.size}): super(key: key);
+  DDButton({Key? key, required this.text, required this.onPressed, required this.color, required this.type, required this.size, required this.textStyle}): super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -48,11 +48,7 @@ class DDButton extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: size.fontSize,
-              color: DDTheme.darkColor,
-              fontWeight: FontWeight.bold
-            ),
+            style: textStyle,
           ),
         );
       case DDButtonType.Outlined:
@@ -60,11 +56,7 @@ class DDButton extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: size.fontSize,
-              color: color,
-              fontWeight: FontWeight.bold
-            ),
+            style: textStyle,
           ),
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(

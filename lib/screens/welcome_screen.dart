@@ -1,5 +1,4 @@
 import 'package:digitaldungeons/utils/index.dart';
-import 'package:digitaldungeons/utils/navigation.dart';
 import 'package:digitaldungeons/widgets/button.dart';
 import 'package:flutter/material.dart';
 
@@ -44,15 +43,11 @@ class DDWelcomeScreen extends StatelessWidget {
                     height: 51,
                   ),
                   Padding(
-                    padding: EdgeInsets.all(16),
+                    padding: EdgeInsets.all(8),
                     child: Text(
                       'WELCOME TO DIGITAL DUNGEONS!',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: DDTheme.primaryColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 36,
-                      ),
+                      style: DDTextTheme.Raleway36PrimaryBold,
                     ),
                   ),
                   SizedBox(
@@ -66,7 +61,8 @@ class DDWelcomeScreen extends StatelessWidget {
                         color: DDTheme.primaryColor, 
                         onPressed: () {Navigator.pushNamed(context, DDRoutes.SignIn);}, 
                         size: DDButtonSizes.Large, 
-                        type: DDButtonType.Outlined
+                        type: DDButtonType.Outlined,
+                        textStyle: DDTextTheme.Raleway24PrimaryBold,
                       ),
                       SizedBox(
                         width: 24,
@@ -76,7 +72,8 @@ class DDWelcomeScreen extends StatelessWidget {
                         color: DDTheme.primaryColor, 
                         onPressed: () {Navigator.pushNamed(context, DDRoutes.SignUp);}, 
                         size: DDButtonSizes.Large, 
-                        type: DDButtonType.Filled
+                        type: DDButtonType.Filled,
+                        textStyle: DDTextTheme.Raleway24BlackBold,
                       ),
                     ],
                   )
