@@ -23,3 +23,22 @@ const DDCharacterMainInfo = [
   'Race',
   'Background',
 ];
+
+const DDCharacterGeneralInfo = [
+  'Experience',
+  'Initiative',
+  'Armor',
+  'Speed',
+  'Hit Dice',
+  'Death Saves',
+];
+
+const DDCharacterCharacteristicsInfo = [
+  'Strength',
+  'Dexterity',
+  'Constitution',
+  'Intelect',
+  'Wisdom',
+  'Charisma',
+  'Perception',
+];

@@ -9,6 +9,13 @@ class DDTextTheme {
     fontSize: 18,
   );
 
+  static const TextStyle Raleway18BlackRegular = TextStyle(
+    color: DDTheme.darkColor,
+    fontWeight: FontWeight.normal,
+    fontFamily: "Raleway",
+    fontSize: 18,
+  );
+
   static const TextStyle Raleway18PrimaryBold = TextStyle(
     color: DDTheme.primaryColor,
     fontWeight: FontWeight.w700,

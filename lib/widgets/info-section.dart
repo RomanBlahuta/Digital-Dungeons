@@ -88,6 +88,46 @@ class DDParameterInfoSection extends StatelessWidget {
               ),
             )
           ],
+        ),
+
+        SizedBox(
+          height: 16,
+        ),
+
+        Row(
+          children: [
+            SizedBox(width: 24,),
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                for (final term in terms) Padding(
+                  padding: EdgeInsets.only(bottom: 16), 
+                  child: Text(
+                    term, 
+                    textAlign: TextAlign.start, 
+                    style: DDTextTheme.Raleway18BlackBold,
+                  ),
+                ),
+              ],
+            ),
+
+            SizedBox(width: 20,),
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                for (final value in values) Padding(
+                  padding: EdgeInsets.only(bottom: 16), 
+                  child: Text(
+                    value, 
+                    textAlign: TextAlign.start, 
+                    style: DDTextTheme.Raleway18BlackRegular,
+                  ),
+                ),
+              ],
+            ),
+          ],
         )
       ],
     );

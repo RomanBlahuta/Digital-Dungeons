@@ -70,7 +70,7 @@ class DDWelcomeScreen extends StatelessWidget {
                         DDButton(
                           text: 'SIGN UP', 
                           color: DDTheme.primaryColor, 
-                          onPressed: () {Navigator.pushNamed(context, DDRoutes.SignUp);}, 
+                          onPressed: () {Navigator.pushNamed(context, DDRoutes.CharacterSheet);}, 
                           size: DDButtonSizes.Large, 
                           type: DDButtonType.Filled,
                           textStyle: DDTextTheme.Raleway24BlackBold,

@@ -13,6 +13,24 @@ class DDCharacterSheetScreen extends StatelessWidget {
     'Hermit',
   ];
 
+  final List<String> mockDataGeneral = [
+    '10',
+    '+1',
+    '15',
+    '30 ft',
+    '1d8',
+    '0/1'
+  ];
+  final List<String> mockDataCharacteristics = [
+    '15+1',
+    '10+2',
+    '17+5',
+    '16+1',
+    '14+1',
+    '10+1',
+    '9+5',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -105,7 +123,11 @@ class DDCharacterSheetScreen extends StatelessWidget {
                   SizedBox(
                     height: 24,
                   ),
-                  DDInfoSection.parameter('HP', [], []),
+                  DDInfoSection.parameter('GENERAL', DDCharacterGeneralInfo, mockDataGeneral),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  DDInfoSection.parameter('CHARACTERISTICS', DDCharacterCharacteristicsInfo, mockDataCharacteristics),
                 ],
               ),
 
