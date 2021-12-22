@@ -1,6 +1,6 @@
 import 'package:digitaldungeons/utils/index.dart';
-import 'package:digitaldungeons/widgets/category_button.dart';
-import 'package:digitaldungeons/widgets/user_profile.dart';
+import 'package:digitaldungeons/widgets/category-button.dart';
+import 'package:digitaldungeons/widgets/user-profile.dart';
 import 'package:flutter/material.dart';
 
 class DDHomeScreen extends StatelessWidget {

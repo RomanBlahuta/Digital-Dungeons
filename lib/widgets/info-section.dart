@@ -1,0 +1,95 @@
+import 'package:flutter/material.dart';
+import '../utils/index.dart';
+
+class DDInfoSection {
+  static Widget parameter(String title, List<String> terms, List<String> values) {
+    return DDParameterInfoSection(title: title, terms: terms, values: values);
+  }
+
+  static Widget main(List<String> terms, List<String> values) {
+    return DDMainInfoSection(terms: terms, values: values);
+  }
+}
+
+class DDMainInfoSection extends StatelessWidget {
+  final List<String> terms;
+  final List<String> values;
+
+  const DDMainInfoSection({ Key? key, required this.terms, required this.values }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            for (final term in terms) Padding(
+              padding: EdgeInsets.only(bottom: 16), 
+              child: Text(
+                term, 
+                textAlign: TextAlign.start, 
+                style: DDTextTheme.Raleway20PrimaryBold,
+              ),
+            ),
+          ],
+        ),
+
+        SizedBox(width: 42,),
+
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            for (final value in values) Padding(
+              padding: EdgeInsets.only(bottom: 16), 
+              child: Text(
+                value, 
+                textAlign: TextAlign.start, 
+                style: DDTextTheme.Raleway20WhiteRegular,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class DDParameterInfoSection extends StatelessWidget {
+  final String title;
+  final List<String> terms;
+  final List<String> values;
+
+  const DDParameterInfoSection({ Key? key, required this.title, required this.terms, required this.values }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 24,
+            ),
+            Text(
+              title,
+              style: DDTextTheme.Raleway24AccentBold,
+            ),
+            SizedBox(
+              width: 11,
+            ),
+            Expanded(
+              child: Divider(
+                thickness: 2,
+                color: DDTheme.primaryColor,
+              ),
+            )
+          ],
+        )
+      ],
+    );
+  }
+}
