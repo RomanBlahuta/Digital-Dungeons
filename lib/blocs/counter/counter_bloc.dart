@@ -1,5 +1,5 @@
-import 'package:digitaldungeons/blocs/welcome/welcome_events.dart';
-import 'package:digitaldungeons/blocs/welcome/welcome_state.dart';
+import 'package:digitaldungeons/blocs/counter/counter_events.dart';
+import 'package:digitaldungeons/blocs/counter/counter_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WelcomeBloc extends Bloc<WelcomeEvent, WelcomeState> {
