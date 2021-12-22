@@ -1,5 +1,6 @@
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:digitaldungeons/widgets/button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class DDSignInScreen extends StatelessWidget {
@@ -50,21 +51,76 @@ class DDSignInScreen extends StatelessWidget {
                     style: DDTextTheme.Raleway36PrimaryBold,
                   ),
                 ),
-                SizedBox(
-                  height: 167,
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  onChanged: (value) {
+                    email = value.toString().trim();
+                  },
+                  textAlign: TextAlign.center,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    DDButton(
-                      text: 'SIGN IN',
-                      color: DDTheme.primaryColor,
-                      onPressed: () {Navigator.pushNamed(context, DDRoutes.SignUp);},
-                      size: DDButtonSizes.Large,
-                      type: DDButtonType.Filled,
-                      textStyle: DDTextTheme.Raleway24BlackBold,
-                    ),
-                  ],
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Text(
+                    'Password',
+                    textAlign: TextAlign.center,
+                    style: DDTextTheme.Raleway36PrimaryBold,
+                  ),
+                ),
+                TextFormField(
+                  obscureText: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please enter Password";
+                    }
+                  },
+                  onChanged: (value) {
+                    password = value;
+                  },
+                  textAlign: TextAlign.center,
+                ),
+                DDButton(
+                    text: 'SIGN IN',
+                    color: DDTheme.primaryColor,
+                    size: DDButtonSizes.Large,
+                    type: DDButtonType.Filled,
+                    textStyle: DDTextTheme.Raleway24BlackBold,
+                    onPressed: () async {
+                      try {
+                        await _auth.createUserWithEmailAndPassword(
+                            email: email, password: password);
+
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: Colors.blueGrey,
+                            content: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                  'Sucessfully Register.You Can Login Now'),
+                            ),
+                            duration: Duration(seconds: 5),
+                          ),
+                        );
+                        Navigator.of(context).pop();
+                      } on FirebaseAuthException catch (e) {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) =>
+                              AlertDialog(
+                                title:
+                                Text(' Ops! Registration Failed'),
+                                content: Text('${e.message}'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(ctx).pop();
+                                    },
+                                    child: Text('Okay'),
+                                  )
+                                ],
+                              ),
+                        );
+                      }
+                    }
                 )
               ],
             ),
