@@ -16,3 +16,4 @@ const DDMonstersBack = "assets/images/DD_monsters.png";
 const DDRacesBack = "assets/images/DD_races.png";
 const DDClassesBack = "assets/images/DD_classes.png";
 const DDSpellBookBanner = "assets/images/DD_spell_book_banner.png";
+const DDItemListBanner = "assets/images/DD_items_list_banner.png";
