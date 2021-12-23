@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class DDApi {
   final String ApiLink = "https://www.dnd5eapi.co/api/";
@@ -11,4 +12,9 @@ class DDApi {
       throw Exception('Failed to load album');
     }
   }
+
+  Map<String, dynamic> toMap(String responseBody) {
+    return json.decode(responseBody).cast<Map<String, dynamic>>();
+  }
+
 }

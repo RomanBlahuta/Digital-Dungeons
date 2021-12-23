@@ -1,5 +1,4 @@
 import 'package:digitaldungeons/screens/characters_list_sreen.dart';
-import 'package:digitaldungeons/screens/home_screen.dart';
 import 'package:digitaldungeons/screens/index.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
           // return MaterialPageRoute(builder: (context) => DDWelcomeScreen('Home'));
         }
         else if (settings.name == 'sign-in') {
-          return MaterialPageRoute(builder: (context) => Text('Sign In'));
+          return MaterialPageRoute(builder: (context) => DDSignInScreen('Sign In'));
         }
         else if (settings.name == DDRoutes.SignUp) {
           return MaterialPageRoute(builder: (context) => DDSignUpScreen('Sign Up'));

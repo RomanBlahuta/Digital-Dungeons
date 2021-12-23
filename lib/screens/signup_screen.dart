@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class DDSignUpScreen extends StatelessWidget {
   final String title;
   final _auth = FirebaseAuth.instance;
+  String name = '';
   String email = '';
   String password = '';
 
@@ -35,23 +36,50 @@ class DDSignUpScreen extends StatelessWidget {
             ),
           ),
 
-          Center(
+          Container(
+            padding: EdgeInsets.all(30),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: 25,
+                ),
                 Image.asset(
                   'assets/images/DD_logo.png',
                   width: 156,
                 ),
                 SizedBox(
-                  height: 51,
+                  height: 25,
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Text(
+                    'Name',
+                    textAlign: TextAlign.center,
+                    style: DDTextTheme.Raleway20AccentRegular,
+                  ),
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  onChanged: (value) {
+                    name = value.toString().trim();
+                  },
+                  textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: DDTheme.primaryColor,
+                    labelText: 'Enter your name',
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Padding(
                   padding: EdgeInsets.all(8),
                   child: Text(
                     'Email',
                     textAlign: TextAlign.center,
-                    style: DDTextTheme.Raleway36PrimaryBold,
+                    style: DDTextTheme.Raleway20AccentRegular,
                   ),
                 ),
                 TextFormField(
@@ -60,13 +88,21 @@ class DDSignUpScreen extends StatelessWidget {
                     email = value.toString().trim();
                   },
                   textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: DDTheme.primaryColor,
+                    labelText: 'Enter your email',
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Padding(
                   padding: EdgeInsets.all(8),
                   child: Text(
                     'Password',
                     textAlign: TextAlign.center,
-                    style: DDTextTheme.Raleway36PrimaryBold,
+                    style: DDTextTheme.Raleway20AccentRegular,
                   ),
                 ),
                 TextFormField(
@@ -80,6 +116,14 @@ class DDSignUpScreen extends StatelessWidget {
                     password = value;
                   },
                   textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: DDTheme.primaryColor,
+                    labelText: 'Enter your password',
+                  ),
+                ),
+                SizedBox(
+                  height: 51,
                 ),
                 DDButton(
                   text: 'SIGN UP',

@@ -1,3 +1,4 @@
+import 'package:digitaldungeons/screens/home_screen.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:digitaldungeons/widgets/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -5,6 +6,9 @@ import 'package:flutter/material.dart';
 
 class DDSignInScreen extends StatelessWidget {
   final String title;
+  final _auth = FirebaseAuth.instance;
+  String email = '';
+  String password = '';
 
   DDSignInScreen(this.title);
 
@@ -32,10 +36,14 @@ class DDSignInScreen extends StatelessWidget {
             ),
           ),
 
-          Center(
+          Container(
+            padding: EdgeInsets.all(30),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: 25,
+                ),
                 Image.asset(
                   'assets/images/DD_logo.png',
                   width: 156,
@@ -48,7 +56,7 @@ class DDSignInScreen extends StatelessWidget {
                   child: Text(
                     'Email',
                     textAlign: TextAlign.center,
-                    style: DDTextTheme.Raleway36PrimaryBold,
+                    style: DDTextTheme.Raleway20AccentRegular,
                   ),
                 ),
                 TextFormField(
@@ -57,13 +65,21 @@ class DDSignInScreen extends StatelessWidget {
                     email = value.toString().trim();
                   },
                   textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: DDTheme.primaryColor,
+                    labelText: 'Enter your email',
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Padding(
                   padding: EdgeInsets.all(8),
                   child: Text(
                     'Password',
                     textAlign: TextAlign.center,
-                    style: DDTextTheme.Raleway36PrimaryBold,
+                    style: DDTextTheme.Raleway20AccentRegular,
                   ),
                 ),
                 TextFormField(
@@ -77,6 +93,14 @@ class DDSignInScreen extends StatelessWidget {
                     password = value;
                   },
                   textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: DDTheme.primaryColor,
+                    labelText: 'Enter your password',
+                  ),
+                ),
+                SizedBox(
+                  height: 51,
                 ),
                 DDButton(
                     text: 'SIGN IN',
@@ -86,38 +110,21 @@ class DDSignInScreen extends StatelessWidget {
                     textStyle: DDTextTheme.Raleway24BlackBold,
                     onPressed: () async {
                       try {
-                        await _auth.createUserWithEmailAndPassword(
+                        await _auth.signInWithEmailAndPassword(
                             email: email, password: password);
-
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            backgroundColor: Colors.blueGrey,
-                            content: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                  'Sucessfully Register.You Can Login Now'),
-                            ),
-                            duration: Duration(seconds: 5),
+                        await Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => DDHomeScreen(),
                           ),
                         );
-                        Navigator.of(context).pop();
+
                       } on FirebaseAuthException catch (e) {
                         showDialog(
-                          context: context,
-                          builder: (ctx) =>
-                              AlertDialog(
-                                title:
-                                Text(' Ops! Registration Failed'),
-                                content: Text('${e.message}'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(ctx).pop();
-                                    },
-                                    child: Text('Okay'),
-                                  )
-                                ],
-                              ),
+                            context: context,
+                            builder: (ctx) => AlertDialog(
+                            title: Text("Ops! Login Failed"),
+                            content: Text('${e.message}'),
+                            )
                         );
                       }
                     }
