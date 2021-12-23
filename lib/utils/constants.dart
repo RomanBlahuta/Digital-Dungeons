@@ -7,6 +7,7 @@ const DDSwordIcon = "assets/images/icons/DD_sword.png";
 const DDMonsterIcon = "assets/images/icons/DD_monster.png";
 const DDElfIcon = "assets/images/icons/DD_elf.png";
 const DDKnightIcon = "assets/images/icons/DD_knight.png";
+const DDSpellBookIcon = "assets/images/icons/DD_spell_book.png";
 
 const DDCreateCharacterBack = "assets/images/DD_create_character.png";
 const DDMagicBack = "assets/images/DD_magic.png";
@@ -14,3 +15,4 @@ const DDItemsBack = "assets/images/DD_items.png";
 const DDMonstersBack = "assets/images/DD_monsters.png";
 const DDRacesBack = "assets/images/DD_races.png";
 const DDClassesBack = "assets/images/DD_classes.png";
+const DDSpellBookBanner = "assets/images/DD_spell_book_banner.png";

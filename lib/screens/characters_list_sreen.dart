@@ -1,11 +1,12 @@
 import 'package:digitaldungeons/utils/index.dart';
+import 'package:digitaldungeons/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/character_button.dart';
+import '../widgets/list_button.dart';
 
 class DDCharactersListScreen extends StatelessWidget {
 
-  final List<Map> _currentCharacters = [
+  static const List<Map> _currentCharacters = [
     // {'name' : 'Rowan Birch', 'info' : 'cleric 8 lvl', 'icon' : DDKnightIcon},
     // {'name' : 'Rowan Birch', 'info' : 'cleric 9 lvl', 'icon' : DDKnightIcon},
     // {'name' : 'Rowan Birch', 'info' : 'cleric 7 lvl', 'icon' : DDKnightIcon},
@@ -13,7 +14,7 @@ class DDCharactersListScreen extends StatelessWidget {
     // {'name' : 'Rowan Birch', 'info' : 'cleric 9 lvl', 'icon' : DDKnightIcon}
   ];
 
-  final List<Map> _savedCharacters = [
+  static const List<Map> _savedCharacters = [
     {'name' : 'Rowan Birch', 'info' : 'cleric 7 lvl', 'icon' : DDKnightIcon},
     {'name' : 'Rowan Birch', 'info' : 'cleric 8 lvl', 'icon' : DDKnightIcon},
     {'name' : 'Rowan Birch', 'info' : 'cleric 9 lvl', 'icon' : DDKnightIcon},
@@ -25,37 +26,14 @@ class DDCharactersListScreen extends StatelessWidget {
     {'name' : 'Rowan Birch', 'info' : 'cleric 9 lvl', 'icon' : DDKnightIcon},
   ];
 
-  // const DDCharactersListScreen({Key? key}) : super(key: key);
+  const DDCharactersListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
           backgroundColor: DDTheme.darkColor,
-          appBar: AppBar(
-            leading: IconButton(
-                onPressed: () {Navigator.pushNamed(context, DDRoutes.Home);},
-                icon: const Icon(
-                  Icons.home,
-                  color: DDTheme.darkColor,
-                  size: 35,
-                )
-            ),
-            title: Text("DIGITAL DUNGEONS",
-              style: DDTextTheme.Raleway20BlackSemiBold,),
-            actions: <Widget> [
-              IconButton(
-                  onPressed: () { print('Click!'); },
-                  icon: const Icon(
-                    Icons.logout,
-                    color: DDTheme.darkColor,
-                    size: 35,
-                  )
-              )
-            ],
-            backgroundColor: DDTheme.primaryColor,
-          ),
-
+          appBar: DDAppBar(),
           body: SingleChildScrollView (
             child: Column (
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,12 +50,11 @@ class DDCharactersListScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 20),
                     itemCount: _currentCharacters.length,
                     itemBuilder: (context, index) {
-                      return Card (
-                        child: DDCharacterButton(
-                          name: _currentCharacters[index]['name'],
-                          info: _currentCharacters[index]['info'],
-                          icon: _currentCharacters[index]['icon'],
-                        ),
+                      return DDListButton(
+                        name: _currentCharacters[index]['name'],
+                        info: _currentCharacters[index]['info'],
+                        icon: _currentCharacters[index]['icon'],
+                        onPressed: () {},
                       );
                     }
                 )
@@ -102,12 +79,11 @@ class DDCharactersListScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 20),
                     itemCount: _savedCharacters.length,
                     itemBuilder: (context, index) {
-                      return Card(
-                        child: DDCharacterButton(
-                          name: _savedCharacters[index]['name'],
-                          info: _savedCharacters[index]['info'],
-                          icon: _savedCharacters[index]['icon'],
-                        ),
+                      return DDListButton(
+                        name: _savedCharacters[index]['name'],
+                        info: _savedCharacters[index]['info'],
+                        icon: _savedCharacters[index]['icon'],
+                        onPressed: () {},
                       );
                     }
                 )
