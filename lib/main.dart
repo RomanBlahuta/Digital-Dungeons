@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       onGenerateRoute: (settings) {
         if (settings.name == DDRoutes.Welcome) {
-          return MaterialPageRoute(builder: (context) => DDWelcomeScreen());
-          // return MaterialPageRoute(builder: (context) => DDCharacterSheetScreen());
+          // return MaterialPageRoute(builder: (context) => DDWelcomeScreen());
+          return MaterialPageRoute(builder: (context) => DDCharacterSheetScreen());
         }
         else if (settings.name == 'sign-in') {
           return MaterialPageRoute(builder: (context) => Text('Sign In'));

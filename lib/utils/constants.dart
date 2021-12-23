@@ -42,3 +42,16 @@ const DDCharacterCharacteristicsInfo = [
   'Charisma',
   'Perception',
 ];
+
+const DDCharacterStoryInfo = [
+  'Alignment',
+  'Personality Traits',
+  'Ideals',
+  'Bonds',
+  'Hit Dice',
+];
+
+const DDCharacterProficienciesInfo = [
+  'Features & Traits',
+  'Other Proficiencies & Languages',
+];

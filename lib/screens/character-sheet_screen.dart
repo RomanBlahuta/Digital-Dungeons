@@ -14,7 +14,7 @@ class DDCharacterSheetScreen extends StatelessWidget {
   ];
 
   final List<String> mockDataGeneral = [
-    '10',
+    '11Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     '+1',
     '15',
     '30 ft',
@@ -29,6 +29,19 @@ class DDCharacterSheetScreen extends StatelessWidget {
     '14+1',
     '10+1',
     '9+5',
+  ];
+
+  final List<String> mockDataStory = [
+    '1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    '2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    '3Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    '4Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    '1d20 + 3'
+  ];
+
+  final List<String> mockDataProficiencies = [
+    '11Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    '22Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   ];
 
   @override
@@ -128,6 +141,14 @@ class DDCharacterSheetScreen extends StatelessWidget {
                     height: 24,
                   ),
                   DDInfoSection.parameter('CHARACTERISTICS', DDCharacterCharacteristicsInfo, mockDataCharacteristics),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  DDInfoSection.text('STORY & PERSONALITY', DDCharacterStoryInfo, mockDataStory),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  DDInfoSection.text('PROFICIENCIES & TRAITS', DDCharacterProficienciesInfo, mockDataProficiencies),
                 ],
               ),
 
@@ -140,8 +161,6 @@ class DDCharacterSheetScreen extends StatelessWidget {
                   onPressed: () => print('Close button click event'),
                 ),
               )
-
-              //todo
             ],
           ),
         ),
