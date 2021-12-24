@@ -1,4 +1,6 @@
 import 'package:digitaldungeons/screens/index.dart';
+import 'package:digitaldungeons/screens/item_list_screen.dart';
+import 'package:digitaldungeons/screens/spell_book_screen.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -43,6 +45,9 @@ class MyApp extends StatelessWidget {
         }
         else if (settings.name == DDRoutes.SpellBook) {
           return MaterialPageRoute(builder: (context) => DDSpellBookScreen());
+        }
+        else if (settings.name == DDRoutes.ItemList) {
+          return MaterialPageRoute(builder: (context) => DDItemListScreen());
         }
       }
     );

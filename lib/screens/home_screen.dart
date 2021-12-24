@@ -46,7 +46,7 @@ class DDHomeScreen extends StatelessWidget {
                 ),
                 DDCategoryButton(
                     text: "ITEMS",
-                    onPressed: () {print("Click event on Container");},
+                    onPressed: () {Navigator.pushNamed(context, DDRoutes.ItemList);},
                     icon: DDSwordIcon,
                     background: DDItemsBack
                 ),
