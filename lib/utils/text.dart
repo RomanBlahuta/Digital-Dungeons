@@ -30,6 +30,13 @@ class DDTextTheme {
     fontSize: 20,
   );
 
+  static const TextStyle Raleway36PrimarySemiBold = TextStyle(
+    color: DDTheme.primaryColor,
+    fontWeight: FontWeight.w600,
+    fontFamily: "Raleway",
+    fontSize: 36,
+  );
+
   static const TextStyle Raleway24BlackBold = TextStyle(
     color: DDTheme.darkColor,
     fontWeight: FontWeight.w700,
@@ -104,6 +111,13 @@ class DDTextTheme {
     fontFamily: "Raleway",
     fontSize: 20,
   );
+
+  static const TextStyle Raleway20AccentRegular = TextStyle(
+    color: DDTheme.accentColor,
+    fontWeight: FontWeight.normal,
+    fontFamily: "Raleway",
+    fontSize: 20,
+  );
   
   static const TextStyle Raleway36AccentBoldStroke = TextStyle(
     color: DDTheme.accentColor,
@@ -128,5 +142,12 @@ class DDTextTheme {
           color: Colors.black
       ),
     ]
+  );
+
+  static const TextStyle Raleway20AccentBold = TextStyle(
+    color: DDTheme.accentColor,
+    fontWeight: FontWeight.w700,
+    fontFamily: "Raleway",
+    fontSize: 20,
   );
 }
