@@ -1,18 +1,8 @@
-import 'package:digitaldungeons/utils/index.dart';
-import 'package:digitaldungeons/utils/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
-class DDButtonSize {
-  final double width;
-  final double height;
-
-  const DDButtonSize(this.width, this.height);
-}
 
 class DDButtonSizes {
-  static DDButtonSize Small = DDButtonSize(146, 46);
-  static DDButtonSize Large = DDButtonSize(178, 53);
+  static Size Small = Size(146, 46);
+  static Size Large = Size(178, 53);
 }
 
 enum DDButtonType {
@@ -24,7 +14,7 @@ class DDButton extends StatelessWidget {
   final Color color;
   final String text;
   final DDButtonType type;
-  final DDButtonSize size;
+  final Size size;
   final TextStyle textStyle;
   final void Function() onPressed;
 
@@ -37,6 +27,7 @@ class DDButton extends StatelessWidget {
         return ElevatedButton(
           onPressed: onPressed,
           style: ButtonStyle(
+            minimumSize: MaterialStateProperty.all(size),
             backgroundColor: MaterialStateProperty.all(color),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
@@ -60,6 +51,7 @@ class DDButton extends StatelessWidget {
           ),
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(
+            minimumSize: size,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(0),
             ),
