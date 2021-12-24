@@ -71,7 +71,7 @@ class DDSpellSheetScreen extends StatelessWidget {
                   child: IconButton(
                     iconSize: 54,
                     icon: Image.asset(DDCloseIcon),
-                    onPressed: () => print('Close button click event'),
+                    onPressed: () => Navigator.pop(context),
                   ),
                 ),
               ],

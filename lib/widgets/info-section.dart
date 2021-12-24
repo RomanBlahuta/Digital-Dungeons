@@ -359,15 +359,27 @@ class DDColumnsInfoSection extends StatelessWidget {
         Container(
           padding: EdgeInsets.only(left: 24),
           width: MediaQuery.of(context).size.width,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          // here
+          child: Column(
             children: [
-              for (var j = 0; j < terms.length; j++) Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              Padding(
+                padding: EdgeInsets.only(bottom: 6),
+                child: Row(
                   children: [
-                    Text(terms[j], style: DDTextTheme.Raleway18BlackBold,),
-                    for (var i = 0; i < values[j].length; i++) Text(values[j][i], style: DDTextTheme.Raleway18BlackRegular)
+                    for (var i = 0; i < terms.length; i++) Expanded(
+                      child: Text(terms[i], style: DDTextTheme.Raleway18BlackBold),
+                    ),
+                  ],
+                ),
+              ),
+
+              for (var i = 0; i < terms.length; i++) Padding(
+                padding: EdgeInsets.only(bottom: 6),
+                child: Row(
+                  children: [
+                    for (var j = 0; j < values.length; j++) Expanded(
+                      child: Text(values[j][i], style: DDTextTheme.Raleway18BlackRegular),
+                    ),
                   ],
                 )
               ),

@@ -23,7 +23,7 @@ class DDAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: DDTextTheme.Raleway20BlackSemiBold,),
       actions: <Widget> [
         IconButton(
-            onPressed: () { print('Click!'); },
+            onPressed: () { print('Click!'); Navigator.pushNamed(context, DDRoutes.Welcome); },
             icon: const Icon(
               Icons.logout,
               color: DDTheme.darkColor,

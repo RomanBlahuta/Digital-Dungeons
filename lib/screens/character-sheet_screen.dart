@@ -171,7 +171,7 @@ class DDCharacterSheetScreen extends StatelessWidget {
                 child: IconButton(
                   iconSize: 54,
                   icon: Image.asset(DDCloseIcon),
-                  onPressed: () => Navigator.pushNamed(context, DDRoutes.CharactersList),
+                  onPressed: () => Navigator.pop(context),
                 ),
               )
             ],

@@ -1,4 +1,5 @@
 import 'package:digitaldungeons/utils/index.dart';
+import 'package:digitaldungeons/utils/navigation.dart';
 import 'package:digitaldungeons/widgets/app-bar.dart';
 import 'package:flutter/material.dart';
 
@@ -83,7 +84,7 @@ class DDCharactersListScreen extends StatelessWidget {
                         name: _savedCharacters[index]['name'],
                         info: _savedCharacters[index]['info'],
                         icon: _savedCharacters[index]['icon'],
-                        onPressed: () {},
+                        onPressed: () {Navigator.pushNamed(context, DDRoutes.CharacterSheet);},
                       );
                     }
                 )
