@@ -1,4 +1,5 @@
 import 'package:digitaldungeons/screens/index.dart';
+import 'package:digitaldungeons/screens/spell-sheet_screen.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,8 +24,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       onGenerateRoute: (settings) {
         if (settings.name == DDRoutes.Welcome) {
-          // return MaterialPageRoute(builder: (context) => DDHomeScreen());
-          return MaterialPageRoute(builder: (context) => DDWelcomeScreen());
+          return MaterialPageRoute(builder: (context) => DDHomeScreen());
+          // return MaterialPageRoute(builder: (context) => DDWelcomeScreen());
         }
         else if (settings.name == DDRoutes.SignIn) {
           return MaterialPageRoute(builder: (context) => Text('Sign In'));
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
         }
         else if (settings.name == DDRoutes.CharactersList) {
           return MaterialPageRoute(builder: (context) => DDCharactersListScreen());
+        }
+        else if (settings.name == DDRoutes.SpellSheet) {
+          return MaterialPageRoute(builder: (context) => DDSpellSheetScreen());
         }
         else if (settings.name == DDRoutes.SpellBook) {
           return MaterialPageRoute(builder: (context) => DDSpellBookScreen());

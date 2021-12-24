@@ -58,3 +58,16 @@ const DDCharacterProficienciesInfo = [
   'Features & Traits',
   'Other Proficiencies & Languages',
 ];
+
+const DDSpellMainInfo = [
+  'Casting Time',
+  'Range',
+  'Components',
+  'Duration',
+  'Classes',
+];
+
+const DDSpellDescriptionInfo = [
+  'Description',
+  'At Higher Levels',
+];

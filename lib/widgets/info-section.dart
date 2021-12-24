@@ -13,6 +13,10 @@ class DDInfoSection {
   static Widget text(String title, List<String> terms, List<String> values) {
     return DDTextInfoSection(title: title, terms: terms, values: values);
   }
+
+  static Widget description(List<String> terms, List<String> values) {
+    return DDDescriptionSection(terms: terms, values: values);
+  }
 }
 
 class DDMainInfoSection extends StatelessWidget {
@@ -201,6 +205,51 @@ class DDTextInfoSection extends StatelessWidget {
                     ),
                   ],
                 )
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class DDDescriptionSection extends StatelessWidget {
+  final List<String> terms;
+  final List<String> values;
+
+  const DDDescriptionSection({ Key? key, required this.terms, required this.values }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              for (var i = 0; i < terms.length; i++) Padding(
+                  padding: EdgeInsets.only(bottom: 16, left: 24, right: 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        terms[i],
+                        textAlign: TextAlign.start,
+                        style: DDTextTheme.Raleway20AccentBold,
+                      ),
+                      SizedBox(
+                        height: 11,
+                      ),
+                      Text(
+                        values[i],
+                        textAlign: TextAlign.start,
+                        style: DDTextTheme.Raleway18BlackRegular,
+                      ),
+                    ],
+                  )
               ),
             ],
           ),

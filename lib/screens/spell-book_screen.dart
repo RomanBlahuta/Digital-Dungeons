@@ -1,9 +1,7 @@
 import 'package:digitaldungeons/utils/index.dart';
-import 'package:digitaldungeons/widgets/app-bar.dart';
-import 'package:digitaldungeons/widgets/list_button.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/category_header.dart';
+import '../widgets/index.dart';
 
 class DDSpellBookScreen extends StatelessWidget {
   static const List<Map> _spells = [
@@ -45,7 +43,7 @@ class DDSpellBookScreen extends StatelessWidget {
                       return DDListButton(
                         name: _spells[index]['name'],
                         info: _spells[index]['info'],
-                        onPressed: () {print('Click');},
+                        onPressed: () {Navigator.pushNamed(context, DDRoutes.SpellSheet);},
                       );
                     }
                 ),

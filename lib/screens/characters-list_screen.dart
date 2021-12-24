@@ -2,7 +2,7 @@ import 'package:digitaldungeons/utils/index.dart';
 import 'package:digitaldungeons/widgets/app-bar.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/list_button.dart';
+import '../widgets/list-button.dart';
 
 class DDCharactersListScreen extends StatelessWidget {
 
