@@ -11,7 +11,7 @@ class DDUserProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 164,
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width,
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [

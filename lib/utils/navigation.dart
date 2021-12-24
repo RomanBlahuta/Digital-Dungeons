@@ -4,4 +4,6 @@ class DDRoutes {
   static const String SignUp = 'sign-up';
   static const String Home = 'home';
   static const String CharacterSheet = 'character-sheet';
+  static const String CharactersList = 'characters-list';
+  static const String SpellBook = 'spell-book';
 }

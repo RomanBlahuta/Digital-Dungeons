@@ -23,13 +23,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       onGenerateRoute: (settings) {
         if (settings.name == DDRoutes.Welcome) {
-          // return MaterialPageRoute(builder: (context) => DDWelcomeScreen());
-          return MaterialPageRoute(builder: (context) => DDCharacterSheetScreen());
+          // return MaterialPageRoute(builder: (context) => DDHomeScreen());
+          return MaterialPageRoute(builder: (context) => DDWelcomeScreen());
         }
-        else if (settings.name == 'sign-in') {
+        else if (settings.name == DDRoutes.SignIn) {
           return MaterialPageRoute(builder: (context) => Text('Sign In'));
         }
-        else if (settings.name == 'sign-up') {
+        else if (settings.name == DDRoutes.SignUp) {
           return MaterialPageRoute(builder: (context) => Text('Sign Up'));
         }
         else if (settings.name == DDRoutes.Home) {
@@ -37,6 +37,12 @@ class MyApp extends StatelessWidget {
         }
         else if (settings.name == DDRoutes.CharacterSheet) {
           return MaterialPageRoute(builder: (context) => DDCharacterSheetScreen());
+        }
+        else if (settings.name == DDRoutes.CharactersList) {
+          return MaterialPageRoute(builder: (context) => DDCharactersListScreen());
+        }
+        else if (settings.name == DDRoutes.SpellBook) {
+          return MaterialPageRoute(builder: (context) => DDSpellBookScreen());
         }
       }
     );
