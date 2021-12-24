@@ -1,4 +1,5 @@
 import 'package:digitaldungeons/utils/index.dart';
+import 'package:digitaldungeons/widgets/app_bar.dart';
 import 'package:digitaldungeons/widgets/category_button.dart';
 import 'package:digitaldungeons/widgets/user_profile.dart';
 import 'package:flutter/material.dart';
@@ -13,29 +14,7 @@ class DDHomeScreen extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
           backgroundColor: DDTheme.darkColor,
-          appBar: AppBar(
-            leading: IconButton(
-                onPressed: () {Navigator.pushNamed(context, DDRoutes.Home);},
-                icon: const Icon(
-                  Icons.home,
-                  color: DDTheme.darkColor,
-                  size: 35,
-                )
-            ),
-            title: Text("DIGITAL DUNGEONS",
-              style: DDTextTheme.Raleway20BlackSemiBold,),
-            actions: <Widget> [
-              IconButton(
-                  onPressed: () { print('Click!'); },
-                  icon: const Icon(
-                    Icons.logout,
-                    color: DDTheme.darkColor,
-                    size: 35,
-                  )
-              )
-            ],
-            backgroundColor: DDTheme.primaryColor,
-          ),
+          appBar: DDAppBar(),
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -58,7 +37,7 @@ class DDHomeScreen extends StatelessWidget {
                 ),
                 DDCategoryButton(
                     text: "MAGIC",
-                    onPressed: () {print("Click event on Container");},
+                    onPressed: () {Navigator.pushNamed(context, DDRoutes.SpellBook);},
                     icon: DDMagicIcon,
                     background: DDMagicBack
                 ),
