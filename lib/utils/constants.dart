@@ -61,6 +61,12 @@ const DDCharacterProficienciesInfo = [
   'Other Proficiencies & Languages',
 ];
 
+const DDCharaterWeaponsMagicInfo = [
+  'Name', 
+  'ATK Bonus', 
+  'DMG/Type'
+];
+
 const DDSpellMainInfo = [
   'Casting Time',
   'Range',

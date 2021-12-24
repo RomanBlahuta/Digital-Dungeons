@@ -15,16 +15,17 @@ class MyApp extends StatelessWidget {
         DeviceOrientation.portraitDown,
       ]);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: DDTheme.primaryColor,
-      systemNavigationBarColor: DDTheme.primaryColor
+      statusBarColor: DDTheme.accentColor,
+      systemNavigationBarColor: DDTheme.accentColor
     ));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       onGenerateRoute: (settings) {
         if (settings.name == DDRoutes.Welcome) {
-          return MaterialPageRoute(builder: (context) => DDHomeScreen());
+          // return MaterialPageRoute(builder: (context) => DDHomeScreen());
           // return MaterialPageRoute(builder: (context) => DDWelcomeScreen());
+          return MaterialPageRoute(builder: (context) => DDCharacterSheetScreen());
         }
         else if (settings.name == DDRoutes.SignIn) {
           return MaterialPageRoute(builder: (context) => Text('Sign In'));

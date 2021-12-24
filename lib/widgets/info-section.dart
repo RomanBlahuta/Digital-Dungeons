@@ -21,6 +21,10 @@ class DDInfoSection {
   static Widget row_parametrs(List<String> terms, List<String> values) {
     return DDRowParametersSection(terms: terms, values: values);
   }
+
+  static Widget column_parameters(String title, List<String> terms, List<List<String>> values) {
+    return DDColumnsInfoSection(title: title, terms: terms, values: values);
+  }
 }
 
 class DDMainInfoSection extends StatelessWidget {
@@ -126,18 +130,23 @@ class DDParameterInfoSection extends StatelessWidget {
 
             SizedBox(width: 20,),
 
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                for (final value in values) Padding(
-                  padding: EdgeInsets.only(bottom: 16), 
-                  child: Text(
-                    value, 
-                    textAlign: TextAlign.start, 
-                    style: DDTextTheme.Raleway18BlackRegular,
-                  ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.only(right: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    for (final value in values) Padding(
+                      padding: EdgeInsets.only(bottom: 16), 
+                      child: Text(
+                        value, 
+                        textAlign: TextAlign.start, 
+                        style: DDTextTheme.Raleway18BlackRegular,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              )
             ),
           ],
         )
@@ -303,6 +312,67 @@ class DDRowParametersSection extends StatelessWidget {
               )
             ],
           ),
+        )
+      ],
+    );
+  }
+}
+
+class DDColumnsInfoSection extends StatelessWidget {
+  final String title;
+  final List<String> terms;
+  final List<List<String>> values;
+
+  const DDColumnsInfoSection({ Key? key, required this.title, required this.terms, required this.values }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 24,
+            ),
+            Text(
+              title,
+              style: DDTextTheme.Raleway24AccentBold,
+            ),
+            SizedBox(
+              width: 11,
+            ),
+            Expanded(
+              child: Divider(
+                thickness: 2,
+                color: DDTheme.primaryColor,
+              ),
+            )
+          ],
+        ),
+
+        SizedBox(
+          height: 16,
+        ),
+        
+        Container(
+          padding: EdgeInsets.only(left: 24),
+          width: MediaQuery.of(context).size.width,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (var j = 0; j < terms.length; j++) Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(terms[j], style: DDTextTheme.Raleway18BlackBold,),
+                    for (var i = 0; i < values[j].length; i++) Text(values[j][i], style: DDTextTheme.Raleway18BlackRegular)
+                  ],
+                )
+              ),
+            ],
+          )
         )
       ],
     );

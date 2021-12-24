@@ -14,8 +14,8 @@ class DDCharacterSheetScreen extends StatelessWidget {
   ];
 
   final List<String> mockDataGeneral = [
-    '11Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    '+1',
+    '100',
+    '+10',
     '15',
     '30 ft',
     '1d8',
@@ -42,6 +42,12 @@ class DDCharacterSheetScreen extends StatelessWidget {
   final List<String> mockDataProficiencies = [
     '11Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     '22Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  ];
+
+  final List<List<String>> mockWeaponsMagic = [
+    ['Sword', 'Dagger', 'Mace'],
+    ['+5', '+4', '+2'],
+    ['1d6 + Slashing', '1d6 + Piercing', '1d6 + Bludgeoning'],
   ];
 
   @override
@@ -149,6 +155,13 @@ class DDCharacterSheetScreen extends StatelessWidget {
                     height: 24,
                   ),
                   DDInfoSection.text('PROFICIENCIES & TRAITS', DDCharacterProficienciesInfo, mockDataProficiencies),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  DDInfoSection.column_parameters('WEAPONS AND SPELLS', DDCharaterWeaponsMagicInfo, mockWeaponsMagic),
+                  SizedBox(
+                    height: 24,
+                  ),
                 ],
               ),
 
@@ -158,7 +171,7 @@ class DDCharacterSheetScreen extends StatelessWidget {
                 child: IconButton(
                   iconSize: 54,
                   icon: Image.asset(DDCloseIcon),
-                  onPressed: () => print('Close button click event'),
+                  onPressed: () => Navigator.pushNamed(context, DDRoutes.CharactersList),
                 ),
               )
             ],
