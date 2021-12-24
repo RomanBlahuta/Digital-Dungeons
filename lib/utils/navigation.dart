@@ -7,4 +7,5 @@ class DDRoutes {
   static const String CharactersList = 'characters-list';
   static const String SpellSheet = 'spell-sheet';
   static const String SpellBook = 'spell-book';
+  static const String ItemList = 'item-list';
 }
