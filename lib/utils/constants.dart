@@ -19,7 +19,7 @@ const DDSpellBookBanner = "assets/images/DD_spell_book_banner.png";
 const DDItemListBanner = "assets/images/DD_items_list_banner.png";
 const DDBanner = "assets/images/DD_banner.png";
 const DDLogo = "assets/images/DD_logo.png";
-const DDSpellBookBanner = "assets/images/DD_spell_book_banner.png";
+// const DDSpellBookBanner = "assets/images/DD_spell_book_banner.png";
 
 const DDCharacterMainInfo = [
   'Player',
@@ -72,4 +72,17 @@ const DDSpellMainInfo = [
 const DDSpellDescriptionInfo = [
   'Description',
   'At Higher Levels',
+];
+
+const DDItemInfo = [
+  'Category',
+  'Damage',
+  'Damage Type',
+  'Item Rarity',
+  'Modifiers',
+  'Properties',
+  'Range',
+  'Save',
+  'Secondary Damage',
+  'Weight'
 ];

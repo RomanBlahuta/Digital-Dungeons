@@ -1,9 +1,10 @@
-import 'package:digitaldungeons/widgets/app_bar.dart';
+// import 'package:digitaldungeons/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/index.dart';
-import '../widgets/category_header.dart';
-import '../widgets/list_button.dart';
+import '../widgets/index.dart';
+// import '../widgets/category_header.dart';
+// import '../widgets/list_button.dart';
 
 class DDItemListScreen extends StatelessWidget {
   static const List<Map> _items = [
@@ -43,7 +44,7 @@ class DDItemListScreen extends StatelessWidget {
                       return DDListButton(
                         name: _items[index]['name'],
                         info: _items[index]['info'],
-                        onPressed: () {print('Click');},
+                        onPressed: () {Navigator.pushNamed(context, DDRoutes.ItemSheet);},
                       );
                     }
                 ),
