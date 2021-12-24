@@ -17,6 +17,10 @@ class DDInfoSection {
   static Widget description(List<String> terms, List<String> values) {
     return DDDescriptionSection(terms: terms, values: values);
   }
+
+  static Widget row_parametrs(List<String> terms, List<String> values) {
+    return DDRowParametersSection(terms: terms, values: values);
+  }
 }
 
 class DDMainInfoSection extends StatelessWidget {
@@ -251,6 +255,52 @@ class DDDescriptionSection extends StatelessWidget {
                     ],
                   )
               ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class DDRowParametersSection extends StatelessWidget {
+  final List<String> terms;
+  final List<String> values;
+
+  const DDRowParametersSection({ Key? key, required this.terms, required this.values }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+
+        for (var i = 0; i < terms.length; i++) Padding(
+          padding: EdgeInsets.only(right: 20, left: 20, bottom: 20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Container(
+                  width: 100,
+                  child: Text(
+                    terms[i],
+                    textAlign: TextAlign.start,
+                    style: DDTextTheme.Raleway20AccentBold,
+                  ),
+                ),
+              ),
+              SizedBox(width: 2,),
+              Expanded(
+                  child: Container(
+                    child: Text(
+                      values[i],
+                      // overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.start,
+                      style: DDTextTheme.Raleway20BlackRegular,
+                    ),
+                  )
+              )
             ],
           ),
         )
