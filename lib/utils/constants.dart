@@ -36,6 +36,8 @@ const DDCharacterMainInfo = [
 ];
 
 const DDCharacterGeneralInfo = [
+  'Current HP',
+  'Temporary HP',
   'Experience',
   'Initiative',
   'Armor',
@@ -65,6 +67,17 @@ const DDCharacterStoryInfo = [
 const DDCharacterProficienciesInfo = [
   'Features & Traits',
   'Other Proficiencies & Languages',
+];
+
+const DDCharaterWeaponsMagicInfo = [
+  'Name', 
+  'ATK Bonus', 
+  'DMG/Type'
+];
+
+const DDCharacterInventoryInfo = [
+  'Money',
+  'Equipment',
 ];
 
 const DDSpellMainInfo = [

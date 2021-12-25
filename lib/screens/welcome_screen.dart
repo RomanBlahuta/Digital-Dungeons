@@ -59,7 +59,7 @@ class DDWelcomeScreen extends StatelessWidget {
                         DDButton(
                           text: 'SIGN IN', 
                           color: DDTheme.primaryColor, 
-                          onPressed: () {Navigator.pushNamed(context, DDRoutes.Home);}, 
+                          onPressed: () {Navigator.pushNamed(context, DDRoutes.SignIn);}, 
                           size: DDButtonSizes.Large, 
                           type: DDButtonType.Outlined,
                           textStyle: DDTextTheme.Raleway24PrimaryBold,
@@ -70,7 +70,7 @@ class DDWelcomeScreen extends StatelessWidget {
                         DDButton(
                           text: 'SIGN UP', 
                           color: DDTheme.primaryColor, 
-                          onPressed: () {Navigator.pushNamed(context, DDRoutes.CharacterSheet);}, 
+                          onPressed: () {Navigator.pushNamed(context, DDRoutes.SignUp);}, 
                           size: DDButtonSizes.Large, 
                           type: DDButtonType.Filled,
                           textStyle: DDTextTheme.Raleway24BlackBold,
