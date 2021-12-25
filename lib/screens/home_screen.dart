@@ -3,6 +3,8 @@ import 'package:digitaldungeons/widgets/app_bar.dart';
 import 'package:digitaldungeons/widgets/category_button.dart';
 import 'package:digitaldungeons/widgets/user_profile.dart';
 import 'package:flutter/material.dart';
+// import 'package:digitaldungeons/repositories/database_repository.dart';
+// import 'package:digitaldungeons/models/character_data.dart';
 
 class DDHomeScreen extends StatelessWidget {
 
@@ -11,6 +13,9 @@ class DDHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final DDDatabaseRepository characterDao = DDDatabaseRepository();
+    // final character = Character("test", "123");
+    // characterDao.saveCharacter(character);
     return SafeArea(
         child: Scaffold(
           backgroundColor: DDTheme.darkColor,

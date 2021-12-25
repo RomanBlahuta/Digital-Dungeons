@@ -3,10 +3,11 @@ import 'package:digitaldungeons/utils/index.dart';
 import 'package:digitaldungeons/widgets/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:digitaldungeons/repositories/auth_repository.dart';
 
 class DDSignInScreen extends StatelessWidget {
   final String title;
-  final _auth = FirebaseAuth.instance;
+  final _auth = DDAuthRepository();
   String email = '';
   String password = '';
 
@@ -110,8 +111,7 @@ class DDSignInScreen extends StatelessWidget {
                     textStyle: DDTextTheme.Raleway24BlackBold,
                     onPressed: () async {
                       try {
-                        await _auth.signInWithEmailAndPassword(
-                            email: email, password: password);
+                        await _auth.signIn(email, password);
                         await Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => DDHomeScreen(),

@@ -2,10 +2,11 @@ import 'package:digitaldungeons/utils/index.dart';
 import 'package:digitaldungeons/widgets/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:digitaldungeons/repositories/auth_repository.dart';
 
 class DDSignUpScreen extends StatelessWidget {
   final String title;
-  final _auth = FirebaseAuth.instance;
+  final _auth = DDAuthRepository();
   String name = '';
   String email = '';
   String password = '';
@@ -133,9 +134,7 @@ class DDSignUpScreen extends StatelessWidget {
                   textStyle: DDTextTheme.Raleway24BlackBold,
                   onPressed: () async {
                     try {
-                      await _auth.createUserWithEmailAndPassword(
-                          email: email, password: password);
-
+                      await _auth.signUp(email, password);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           backgroundColor: Colors.blueGrey,

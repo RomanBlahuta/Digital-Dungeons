@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "130990444964",
+    "firebase_url": "https://digital-dungeons-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "digital-dungeons",
     "storage_bucket": "digital-dungeons.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "130990444964-1q8r21cl8vf91pp7hu2te85uu7psjb3d.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "130990444964-sje3mvmu061vhc0o1enuqgh2gnfg7d31.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.digitaldungeons"
+              }
             }
           ]
         }
