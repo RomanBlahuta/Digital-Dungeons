@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 enum DDSignUpInputType {
   EMail,
@@ -9,8 +10,12 @@ enum DDSignUpInputType {
 abstract class DDSignUpEvent extends Equatable{}
 
 class DDSignUpSubmitEvent extends DDSignUpEvent {
+  final BuildContext context;
+
+  DDSignUpSubmitEvent(this.context);
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [context];
 }
 
 class DDSignUpInputEvent extends DDSignUpEvent {
