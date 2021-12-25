@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/index.dart';
 
-class DDAttacksNSpellcastingScreen extends StatelessWidget {
-  DDAttacksNSpellcastingScreen({Key? key}) : super(key: key);
+class DDEquipmentScreen extends StatelessWidget {
+  DDEquipmentScreen({Key? key}) : super(key: key);
 
-  TextEditingController _nameController01 = TextEditingController(text: 'default');
-  TextEditingController _ATKBonusController01 = TextEditingController();
-  TextEditingController _damageTypeController01 = TextEditingController();
-  TextEditingController _descriptionController01 = TextEditingController();
+  TextEditingController _moneyController = TextEditingController(text: 'default');
+  TextEditingController _equipmentsController = TextEditingController();
 
-  static const pageIndex = 5;
+  static const pageIndex = 6;
 
   @override
   Widget build(BuildContext context) {
@@ -59,24 +57,30 @@ class DDAttacksNSpellcastingScreen extends StatelessWidget {
                                   height: 22,
                                 ),
                                 Text(
-                                  'Attacks & Spellcasting',
+                                  'Equipment',
                                   textAlign: TextAlign.center,
                                   style: DDTextTheme.Raleway36AccentSemiBold,
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Name", controller: _nameController01),
-                                DDInputText(fieldName: "ATK Bonus", controller: _ATKBonusController01),
-                                DDInputText(fieldName: "Damage/Type", controller: _damageTypeController01),
-                                DDInputText(fieldName: "Description", controller: _descriptionController01),
+                                DDInputText(fieldName: "Money", controller: _moneyController),
+                                DDInputText(fieldName: "Equipment", controller: _equipmentsController),
 
-                                Divider(
-                                  color: DDTheme.accentColor,
-                                  thickness: 2.0,
+                                SizedBox(height: 50,),
+
+                                DDButton(
+                                    text: "Save",
+                                    onPressed:() {},
+                                    color: DDTheme.darkColor,
+                                    type: DDButtonType.Filled,
+                                    size: DDButtonSizes.Small,
+                                    textStyle: DDTextTheme.Raleway18AccentBold
                                 ),
 
-                                DDSwitchPagesController(leftRoute: DDRoutes.ProficienciesNTraitsInfo, rightRoute: DDRoutes.EquipmentInfo,),
+                                SizedBox(height: 50,),
+
+                                DDSwitchPagesController(leftRoute: DDRoutes.AttacksNSpellcastingInfo,),
 
                                 SizedBox(height: 30,),
                               ],

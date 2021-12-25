@@ -15,4 +15,5 @@ class DDRoutes {
   static const String CharacteristicsInfo = 'characteristics-info';
   static const String ProficienciesNTraitsInfo = 'proficiencies-n-traits-info';
   static const String AttacksNSpellcastingInfo = 'attacks-n-spellcasting-info';
+  static const String EquipmentInfo = 'equipment-info';
 }

@@ -22,6 +22,13 @@ class DDTextTheme {
     fontFamily: "Raleway",
     fontSize: 18,
   );
+
+  static const TextStyle Raleway18AccentBold = TextStyle(
+    color: DDTheme.lightColor,
+    fontWeight: FontWeight.w700,
+    fontFamily: "Raleway",
+    fontSize: 18,
+  );
   
   static const TextStyle Raleway20BlackSemiBold = TextStyle(
     color: DDTheme.darkColor,

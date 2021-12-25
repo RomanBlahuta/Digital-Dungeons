@@ -71,6 +71,9 @@ class MyApp extends StatelessWidget {
         else if (settings.name == DDRoutes.AttacksNSpellcastingInfo) {
           return MaterialPageRoute(builder: (context) => DDAttacksNSpellcastingScreen());
         }
+        else if (settings.name == DDRoutes.EquipmentInfo) {
+          return MaterialPageRoute(builder: (context) => DDEquipmentScreen());
+        }
       }
     );
   }

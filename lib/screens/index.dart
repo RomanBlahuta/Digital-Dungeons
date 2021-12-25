@@ -12,4 +12,6 @@ export 'create-chracter/characteristics_screen.dart';
 export 'create-chracter/story-n-personality_screen.dart';
 export 'create-chracter/proficiencies-n-traits_screen.dart';
 export 'create-chracter/attacks-n-spellcasting_screen.dart';
+export 'create-chracter/equipments_screen.dart';
+
 
