@@ -74,11 +74,11 @@ class DDStoryNRersonalityScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Alignment", controller: _alignmentController),
-                                DDInputText(fieldName: "Personality Traits", controller: _personalityTraitsController),
-                                DDInputText(fieldName: "Ideals", controller: _idealsController),
-                                DDInputText(fieldName: "Bonds", controller: _bondsController),
-                                DDInputText(fieldName: "Flaws", controller: _flawsController),
+                                // DDInputText(fieldName: "Alignment", controller: _alignmentController),
+                                // DDInputText(fieldName: "Personality Traits", controller: _personalityTraitsController),
+                                // DDInputText(fieldName: "Ideals", controller: _idealsController),
+                                // DDInputText(fieldName: "Bonds", controller: _bondsController),
+                                // DDInputText(fieldName: "Flaws", controller: _flawsController),
 
                                 DDSwitchPagesController(leftRoute: DDRoutes.HPInfo, rightRoute: DDRoutes.CharacteristicsInfo,),
 

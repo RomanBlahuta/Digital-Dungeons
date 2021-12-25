@@ -1,18 +1,35 @@
 
-
 class Character {
 
-  final String name;
-  final String uid;
+  String name = "";
+  String player = "";
+  String level = "";
+  String charClass = "";
+  String race = "";
+  String background = "";
+  String money = "";
+  String equipment = "";
 
-  Character(this.name, this.uid);
+  Character();
 
   Character.fromJson(Map<dynamic, dynamic> json)
       : name = json['name'] as String,
-        uid = json['uid'] as String;
+        player = json['player'] as String,
+        level = json['level'] as String,
+        charClass = json['charClass'] as String,
+        race = json['race'] as String,
+        background = json['background'] as String,
+        money = json['money'] as String,
+        equipment = json['equipment'] as String;
 
   Map<dynamic, dynamic> toJson() => <dynamic, dynamic>{
-    'name': name,
-    'uid': uid,
+     'name': name,
+     'player': player,
+     'level': level,
+     'charClass': charClass,
+     'race': race,
+     'background': background,
+     'money': money,
+     'equipment': equipment,
   };
 }

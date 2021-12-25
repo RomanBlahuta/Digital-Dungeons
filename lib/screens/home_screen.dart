@@ -30,7 +30,7 @@ class DDHomeScreen extends StatelessWidget {
                   height: 44.0,
                 ),
                 DDCategoryButton(
-                    text: "CREATE CHARACTER",
+                    text: "CHARACTERS",
                     onPressed: () {Navigator.pushNamed(context, DDRoutes.CharactersList);},
                     // onPressed: () {print("Click event on Container");},
                     icon: DDHumanIcon,

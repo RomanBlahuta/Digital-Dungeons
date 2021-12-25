@@ -69,13 +69,13 @@ class DDCharacteristicsScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Strength", controller: _strengthController),
-                                DDInputText(fieldName: "Dexterity", controller: _dexterityController),
-                                DDInputText(fieldName: "Constitution", controller: _constitutionController),
-                                DDInputText(fieldName: "Intelect", controller: _intelectController),
-                                DDInputText(fieldName: "Wisdom", controller: _wisdomController),
-                                DDInputText(fieldName: "Charisma", controller: _charismaController),
-                                DDInputText(fieldName: "Perception", controller: _perceptionController),
+                                // DDInputText(fieldName: "Strength", controller: _strengthController),
+                                // DDInputText(fieldName: "Dexterity", controller: _dexterityController),
+                                // DDInputText(fieldName: "Constitution", controller: _constitutionController),
+                                // DDInputText(fieldName: "Intelect", controller: _intelectController),
+                                // DDInputText(fieldName: "Wisdom", controller: _wisdomController),
+                                // DDInputText(fieldName: "Charisma", controller: _charismaController),
+                                // DDInputText(fieldName: "Perception", controller: _perceptionController),
 
                                 DDSwitchPagesController(leftRoute: DDRoutes.StoryNPersonalityInfo, rightRoute: DDRoutes.ProficienciesNTraitsInfo,),
 

@@ -7,15 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../widgets/index.dart';
 
 class DDSpellBookScreen extends StatelessWidget {
-  // static const List<Map> _spells = [
-  //   {'name' : 'Chain Lightning', 'info' : '6 lvl evocation'},
-  //   {'name' : 'Chain Lightning', 'info' : '6 lvl evocation'},
-  //   {'name' : 'Chain Lightning', 'info' : '6 lvl evocation'},
-  //   {'name' : 'Chain Lightning', 'info' : '6 lvl evocation'},
-  //   {'name' : 'Chain Lightning', 'info' : '6 lvl evocation'},
-  //   {'name' : 'Chain Lightning', 'info' : '6 lvl evocation'},
-  //   {'name' : 'Chain Lightning', 'info' : '6 lvl evocation'},
-  // ];
 
   const DDSpellBookScreen({Key? key}) : super(key: key);
 

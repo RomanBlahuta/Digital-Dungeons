@@ -5,13 +5,9 @@ import 'package:digitaldungeons/repositories/auth_repository.dart';
 class DDDatabaseRepository {
   final firestoreInstance = FirebaseFirestore.instance;
 
-  void saveCharacter(Character character) {
+  void saveNewCharacter(Map<String, String> characterData) {
     var currentUser =  DDAuthRepository.getCurrentUser();
-    firestoreInstance.collection("users").doc(currentUser?.uid).collection("characters").add(
-      {
-        "name" : character.name,
-      }
-    );
+    firestoreInstance.collection("users").doc(currentUser?.uid).collection("characters").add(characterData);
   }
 
   Future<QuerySnapshot<Map<String, dynamic>>> getCharacters() {

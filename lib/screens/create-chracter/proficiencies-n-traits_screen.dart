@@ -64,8 +64,8 @@ class DDProficienciesNTraitsScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Other Proficiencies & Languages", controller: _otherProficienciesNLanguagesController),
-                                DDInputText(fieldName: "Features &Traits", controller: _featuresNTraitsController),
+                                // DDInputText(fieldName: "Other Proficiencies & Languages", controller: _otherProficienciesNLanguagesController),
+                                // DDInputText(fieldName: "Features &Traits", controller: _featuresNTraitsController),
 
                                 DDSwitchPagesController(leftRoute: DDRoutes.CharacteristicsInfo, rightRoute: DDRoutes.AttacksNSpellcastingInfo,),
 

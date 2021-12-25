@@ -75,12 +75,12 @@ class DDHPScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Experience", controller: _experienceController),
-                                DDInputText(fieldName: "Initiative", controller: _initiativeController),
-                                DDInputText(fieldName: "Armor", controller: _armorController),
-                                DDInputText(fieldName: "Speed", controller: _speedController),
-                                DDInputText(fieldName: "Hit Dice", controller: _hitDiceController),
-                                DDInputText(fieldName: "Death Saves", controller: _dethSavesController),
+                                // DDInputText(fieldName: "Experience", controller: _experienceController),
+                                // DDInputText(fieldName: "Initiative", controller: _initiativeController),
+                                // DDInputText(fieldName: "Armor", controller: _armorController),
+                                // DDInputText(fieldName: "Speed", controller: _speedController),
+                                // DDInputText(fieldName: "Hit Dice", controller: _hitDiceController),
+                                // DDInputText(fieldName: "Death Saves", controller: _dethSavesController),
 
                                 DDSwitchPagesController(leftRoute: DDRoutes.GeneralInfo, rightRoute: DDRoutes.StoryNPersonalityInfo,),
 

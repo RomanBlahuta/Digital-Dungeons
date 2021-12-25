@@ -64,8 +64,8 @@ class DDEquipmentScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Money", controller: _moneyController),
-                                DDInputText(fieldName: "Equipment", controller: _equipmentsController),
+                                // DDInputText(fieldName: "Money", controller: _moneyController),
+                                // DDInputText(fieldName: "Equipment", controller: _equipmentsController),
 
                                 SizedBox(height: 50,),
 
