@@ -23,9 +23,10 @@ class DDInputText extends StatelessWidget {
               return "Field couldn't be empty!";
             }
           },
-          // maxLines: null,
-          // minLines: 1,
-          // keyboardType: TextInputType.multiline,
+          maxLines: null,
+          minLines: 1,
+          // textInputAction: TextInputAction.newline,
+          keyboardType: TextInputType.multiline,
           style: DDTextTheme.Raleway20BlackRegular,
           decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(

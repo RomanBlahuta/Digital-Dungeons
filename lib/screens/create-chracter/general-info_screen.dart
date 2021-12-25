@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../../widgets/index.dart';
 
 class DDGeneralInfoScreen extends StatelessWidget {
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+
   DDGeneralInfoScreen({Key? key}) : super(key: key);
 
   TextEditingController _nameController = TextEditingController(text: 'default');
