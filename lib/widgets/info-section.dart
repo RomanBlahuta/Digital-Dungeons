@@ -441,11 +441,44 @@ class DDSkillsInfoSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(values.keys.toList()[i], style: DDTextTheme.Raleway18BlackBold),
-                  for (var j = 0; j < values[values.keys.toList()[i]]!.length; j++) Row(
-                    children: [
-                      Text(values[values.keys.toList()[i]]![j][2])
-                    ],
-                  )
+                  SizedBox(height: 24,),
+                  for (var j = 0; j < values[values.keys.toList()[i]]!.length; j++) Padding(
+                    padding: EdgeInsets.only(bottom: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(right: 48),
+                          child: Container(
+                            width: 15,
+                            height: 15,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(color: Colors.black, width: 2),
+                              color: values[values.keys.toList()[i]]![j][0] ? Colors.black : Colors.transparent
+                            ),
+                          ),
+                        ),
+
+                        Expanded(
+                          child: Text(
+                            values[values.keys.toList()[i]]![j][1], 
+                            style: DDTextTheme.Raleway18BlackRegular,
+                          )
+                        ),
+                        
+                        Expanded(
+                          flex: 3, 
+                          child: Text(
+                            values[values.keys.toList()[i]]![j][2], 
+                            style: DDTextTheme.Raleway18BlackRegular,
+                          )
+                        ),
+                      ],
+                    )
+                  ),
+
+                  SizedBox(height: 24,)
                 ],
               )
             ],
