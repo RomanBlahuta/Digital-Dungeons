@@ -31,24 +31,61 @@ class DDCharacterSheetScreen extends StatelessWidget {
     '9+5',
   ];
 
-  final List<String> mockDataStory = [
-    '1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    '2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    '3Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    '4Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    '1d20 + 3'
+  final List<List<String>> mockDataStory = [
+    ['1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'],
+    ['2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'],
+    ['3Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'],
+    ['4Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'],
+    ['1d20 + 3']
   ];
 
-  final List<String> mockDataProficiencies = [
-    '11Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    '22Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  final List<List<String>> mockDataProficiencies = [
+    ['11Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'],
+    ['22Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'],
   ];
 
-  final List<List<String>> mockWeaponsMagic = [
+  final List<List<String>> mockDataWeaponsMagic = [
     ['Sword', 'Dagger', 'Mace'],
     ['+5', '+4', '+2'],
     ['1d6 + Slashing', '1d6 + Piercing', '1d6 + Bludgeoning'],
   ];
+
+  final List<List<String>> mockDataInventory = [
+    ['Gold Coins x50', 'Silver Coins x130'],
+    ['Sword', 'Shield', 'Poison', 'A Bag of Holding'],
+  ];
+
+  final Map<String, List<List<dynamic>>> mockDataSkillsAndSavingThrows = {
+    'Skills': [
+      [true, '+1', 'Acrobatics(Dex)'],
+      [false, '+1', 'Animal Handling(Wis)'],
+      [true, '+1', 'Acrobatics(Dex)'],
+      [false, '+1', 'Animal Handling(Wis)'],
+      [true, '+1', 'Acrobatics(Dex)'],
+      [false, '+1', 'Animal Handling(Wis)'],
+      [true, '+1', 'Acrobatics(Dex)'],
+      [false, '+1', 'Animal Handling(Wis)'],
+      [true, '+1', 'Acrobatics(Dex)'],
+      [false, '+1', 'Animal Handling(Wis)'],
+      [true, '+1', 'Acrobatics(Dex)'],
+      [false, '+1', 'Animal Handling(Wis)'],
+      [true, '+1', 'Acrobatics(Dex)'],
+      [false, '+1', 'Animal Handling(Wis)'],
+      [true, '+1', 'Acrobatics(Dex)'],
+      [false, '+1', 'Animal Handling(Wis)'],
+      [true, '+1', 'Acrobatics(Dex)'],
+      [false, '+1', 'Animal Handling(Wis)'],
+    ],
+    'Saving Throws': [
+      [true, '+1', 'Strength'],
+      [false, '+1', 'Dexteruty'],
+      [true, '+1', 'Constitution'],
+      [false, '+1', 'Intelligence'],
+      [true, '+1', 'Wisdom'],
+      [false, '+1', 'Charisma'],
+    ],
+    
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +195,15 @@ class DDCharacterSheetScreen extends StatelessWidget {
                   SizedBox(
                     height: 24,
                   ),
-                  DDInfoSection.column_parameters('WEAPONS AND SPELLS', DDCharaterWeaponsMagicInfo, mockWeaponsMagic),
+                  DDInfoSection.column_parameters('WEAPONS AND SPELLS', DDCharaterWeaponsMagicInfo, mockDataWeaponsMagic),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  DDInfoSection.text('INVENTORY', DDCharacterInventoryInfo, mockDataInventory),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  DDInfoSection.skills('SKILLS & SAVING THROWS', mockDataSkillsAndSavingThrows),
                   SizedBox(
                     height: 24,
                   ),

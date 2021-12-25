@@ -67,6 +67,11 @@ const DDCharaterWeaponsMagicInfo = [
   'DMG/Type'
 ];
 
+const DDCharacterInventoryInfo = [
+  'Money',
+  'Equipment',
+];
+
 const DDSpellMainInfo = [
   'Casting Time',
   'Range',

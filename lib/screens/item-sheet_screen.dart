@@ -66,7 +66,7 @@ class DDItemSheetScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 30,),
                     // DDInfoSection.description(DDItemInfo, mockDataMain),
-                    DDInfoSection.row_parametrs(DDItemInfo, mockDataMain)
+                    DDInfoSection.row_parameters(DDItemInfo, mockDataMain)
                   ],
                 ),
                 Positioned(

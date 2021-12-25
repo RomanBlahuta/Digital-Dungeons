@@ -10,7 +10,7 @@ class DDInfoSection {
     return DDMainInfoSection(terms: terms, values: values);
   }
 
-  static Widget text(String title, List<String> terms, List<String> values) {
+  static Widget text(String title, List<String> terms, List<List<String>> values) {
     return DDTextInfoSection(title: title, terms: terms, values: values);
   }
 
@@ -18,12 +18,16 @@ class DDInfoSection {
     return DDDescriptionSection(terms: terms, values: values);
   }
 
-  static Widget row_parametrs(List<String> terms, List<String> values) {
+  static Widget row_parameters(List<String> terms, List<String> values) {
     return DDRowParametersSection(terms: terms, values: values);
   }
 
   static Widget column_parameters(String title, List<String> terms, List<List<String>> values) {
     return DDColumnsInfoSection(title: title, terms: terms, values: values);
+  }
+
+  static Widget skills(String title, Map<String, List<List<dynamic>>> values) {
+    return DDSkillsInfoSection(title: title, values: values);
   }
 }
 
@@ -158,7 +162,7 @@ class DDParameterInfoSection extends StatelessWidget {
 class DDTextInfoSection extends StatelessWidget {
   final String title;
   final List<String> terms;
-  final List<String> values;
+  final List<List<String>> values;
 
   const DDTextInfoSection({ Key? key, required this.title, required this.terms, required this.values }) : super(key: key);
 
@@ -211,8 +215,8 @@ class DDTextInfoSection extends StatelessWidget {
                     SizedBox(
                       height: 6,
                     ),
-                    Text(
-                      values[i], 
+                    for (var j = 0; j < values[i].length; j++) Text(
+                      values[i][j], 
                       textAlign: TextAlign.start, 
                       style: DDTextTheme.Raleway18BlackRegular,
                     ),
@@ -359,7 +363,6 @@ class DDColumnsInfoSection extends StatelessWidget {
         Container(
           padding: EdgeInsets.only(left: 24),
           width: MediaQuery.of(context).size.width,
-          // here
           child: Column(
             children: [
               Padding(
@@ -385,6 +388,68 @@ class DDColumnsInfoSection extends StatelessWidget {
               ),
             ],
           )
+        )
+      ],
+    );
+  }
+}
+
+class DDSkillsInfoSection extends StatelessWidget {
+  final String title;
+  final Map<String, List<List<dynamic>>> values;
+
+  const DDSkillsInfoSection({ Key? key, required this.title, required this.values }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 24,
+            ),
+            Text(
+              title,
+              style: DDTextTheme.Raleway24AccentBold,
+            ),
+            SizedBox(
+              width: 11,
+            ),
+            Expanded(
+              child: Divider(
+                thickness: 2,
+                color: DDTheme.primaryColor,
+              ),
+            )
+          ],
+        ),
+
+        SizedBox(
+          height: 16,
+        ),
+        
+        Container(
+          padding: EdgeInsets.only(left: 24),
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (var i = 0; i < values.length; i++) Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(values.keys.toList()[i], style: DDTextTheme.Raleway18BlackBold),
+                  for (var j = 0; j < values[values.keys.toList()[i]]!.length; j++) Row(
+                    children: [
+                      Text(values[values.keys.toList()[i]]![j][2])
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
         )
       ],
     );
