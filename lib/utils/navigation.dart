@@ -13,4 +13,5 @@ class DDRoutes {
   static const String HPInfo = 'hp-info';
   static const String StoryNPersonalityInfo = 'story-n-personality-info';
   static const String CharacteristicsInfo = 'characteristics-info';
+  static const String ProficienciesNTraitsInfo = 'proficiencies-n-traits-info';
 }

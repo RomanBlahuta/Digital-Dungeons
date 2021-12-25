@@ -3,18 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/index.dart';
 
-class DDCharacteristicsScreen extends StatelessWidget {
-  DDCharacteristicsScreen({Key? key}) : super(key: key);
+class DDProficienciesNTraitsScreen extends StatelessWidget {
+  DDProficienciesNTraitsScreen({Key? key}) : super(key: key);
 
-  TextEditingController _strengthController = TextEditingController(text: 'default');
-  TextEditingController _dexterityController = TextEditingController();
-  TextEditingController _constitutionController = TextEditingController();
-  TextEditingController _intelectController = TextEditingController();
-  TextEditingController _wisdomController = TextEditingController();
-  TextEditingController _charismaController = TextEditingController();
-  TextEditingController _perceptionController = TextEditingController();
+  TextEditingController _otherProficienciesNLanguagesController = TextEditingController(text: 'default');
+  TextEditingController _featuresNTraitsController = TextEditingController();
 
-  static const pageIndex = 3;
+  static const pageIndex = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -62,22 +57,17 @@ class DDCharacteristicsScreen extends StatelessWidget {
                                   height: 22,
                                 ),
                                 Text(
-                                  'Characteristics',
+                                  'Proficiencies & Traits',
                                   textAlign: TextAlign.center,
                                   style: DDTextTheme.Raleway36AccentSemiBold,
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Strength", controller: _strengthController),
-                                DDInputText(fieldName: "Dexterity", controller: _dexterityController),
-                                DDInputText(fieldName: "Constitution", controller: _constitutionController),
-                                DDInputText(fieldName: "Intelect", controller: _intelectController),
-                                DDInputText(fieldName: "Wisdom", controller: _wisdomController),
-                                DDInputText(fieldName: "Charisma", controller: _charismaController),
-                                DDInputText(fieldName: "Perception", controller: _perceptionController),
+                                DDInputText(fieldName: "Other Proficiencies & Languages", controller: _otherProficienciesNLanguagesController),
+                                DDInputText(fieldName: "Features &Traits", controller: _featuresNTraitsController),
 
-                                DDSwitchPagesController(leftRoute: DDRoutes.StoryNPersonalityInfo, rightRoute: DDRoutes.ProficienciesNTraitsInfo,),
+                                DDSwitchPagesController(leftRoute: DDRoutes.CharacteristicsInfo, rightRoute: DDRoutes.HPInfo,),
 
                                 SizedBox(height: 30,),
                               ],

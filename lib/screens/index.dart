@@ -10,4 +10,5 @@ export 'create-chracter/general-info_screen.dart';
 export 'create-chracter/hp_screen.dart';
 export 'create-chracter/characteristics-screen.dart';
 export 'create-chracter/story-n-personality_screen.dart';
+export 'create-chracter/proficiencies-n-traits_screen.dart';
 
