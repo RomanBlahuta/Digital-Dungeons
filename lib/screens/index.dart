@@ -6,3 +6,4 @@ export 'spell-sheet_screen.dart';
 export 'characters-list_screen.dart';
 export 'item-list_screen.dart';
 export 'item-sheet_screen.dart';
+export 'create-chracter/general-info_screen.dart';

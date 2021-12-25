@@ -150,4 +150,11 @@ class DDTextTheme {
     fontFamily: "Raleway",
     fontSize: 20,
   );
+
+  static const TextStyle Raleway36AccentSemiBold = TextStyle(
+    color: DDTheme.accentColor,
+    fontWeight: FontWeight.w600,
+    fontFamily: "Raleway",
+    fontSize: 36,
+  );
 }

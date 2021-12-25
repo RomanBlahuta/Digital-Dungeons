@@ -5,3 +5,5 @@ export 'category-header.dart';
 export 'info-section.dart';
 export 'list-button.dart';
 export 'app-bar.dart';
+export 'dots-indicator.dart';
+export 'input-text.dart';

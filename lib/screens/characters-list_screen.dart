@@ -100,7 +100,7 @@ class DDCharactersListScreen extends StatelessWidget {
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {Navigator.pushNamed(context, DDRoutes.GeneralInfo);},
             backgroundColor: DDTheme.accentColor,
             child: const Icon(Icons.add),
             splashColor: DDTheme.primaryColor,

@@ -53,6 +53,9 @@ class MyApp extends StatelessWidget {
         else if (settings.name == DDRoutes.ItemSheet) {
           return MaterialPageRoute(builder: (context) => DDItemSheetScreen());
         }
+        else if (settings.name == DDRoutes.GeneralInfo) {
+          return MaterialPageRoute(builder: (context) => DDGeneralInfoScreen());
+        }
       }
     );
   }

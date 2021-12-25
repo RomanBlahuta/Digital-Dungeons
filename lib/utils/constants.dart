@@ -6,6 +6,10 @@ const DDMonsterIcon = "assets/images/icons/DD_monster.png";
 const DDElfIcon = "assets/images/icons/DD_elf.png";
 const DDKnightIcon = "assets/images/icons/DD_knight.png";
 const DDCloseIcon = "assets/images/icons/DD_close.png";
+const DDCloseLightIcon = "assets/images/icons/DD_close_light.png";
+const DDArrowIcon = "assets/images/icons/DD_arrow.png";
+
+
 const DDSpellBookIcon = "assets/images/icons/DD_spell_book.png";
 
 const DDCreateCharacterBack = "assets/images/DD_create_character.png";
@@ -20,6 +24,7 @@ const DDItemListBanner = "assets/images/DD_items_list_banner.png";
 const DDBanner = "assets/images/DD_banner.png";
 const DDLogo = "assets/images/DD_logo.png";
 // const DDSpellBookBanner = "assets/images/DD_spell_book_banner.png";
+const DDCreateCharacterScreensAmount = 7;
 
 const DDCharacterMainInfo = [
   'Player',

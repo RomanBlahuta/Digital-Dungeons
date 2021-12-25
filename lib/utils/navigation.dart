@@ -9,4 +9,5 @@ class DDRoutes {
   static const String SpellBook = 'spell-book';
   static const String ItemList = 'item-list';
   static const String ItemSheet = 'item-sheet';
+  static const String GeneralInfo = 'general-info';
 }
