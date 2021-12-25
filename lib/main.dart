@@ -66,6 +66,27 @@ class MyApp extends StatelessWidget {
         else if (settings.name == DDRoutes.ItemSheet) {
           return MaterialPageRoute(builder: (context) => DDItemSheetScreen());
         }
+        else if (settings.name == DDRoutes.GeneralInfo) {
+          return MaterialPageRoute(builder: (context) => DDGeneralInfoScreen());
+        }
+        else if (settings.name == DDRoutes.HPInfo) {
+          return MaterialPageRoute(builder: (context) => DDHPScreen());
+        }
+        else if (settings.name == DDRoutes.StoryNPersonalityInfo) {
+          return MaterialPageRoute(builder: (context) => DDStoryNRersonalityScreen());
+        }
+        else if (settings.name == DDRoutes.CharacteristicsInfo) {
+          return MaterialPageRoute(builder: (context) => DDCharacteristicsScreen());
+        }
+        else if (settings.name == DDRoutes.ProficienciesNTraitsInfo) {
+          return MaterialPageRoute(builder: (context) => DDProficienciesNTraitsScreen());
+        }
+        else if (settings.name == DDRoutes.AttacksNSpellcastingInfo) {
+          return MaterialPageRoute(builder: (context) => DDAttacksNSpellcastingScreen());
+        }
+        else if (settings.name == DDRoutes.EquipmentInfo) {
+          return MaterialPageRoute(builder: (context) => DDEquipmentScreen());
+        }
       }
     );
   }
