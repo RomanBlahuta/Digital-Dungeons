@@ -1,5 +1,7 @@
 // import 'package:digitaldungeons/widgets/app_bar.dart';
+import 'package:digitaldungeons/blocs/item/item-list/item-list_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../utils/index.dart';
 import '../widgets/index.dart';
@@ -19,11 +21,14 @@ class DDItemListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return BlocProvider<DDItemListBloc>(
+      create: (providerContext) => DDItemListBloc(),
+      child: SafeArea(
         child: Scaffold(
           backgroundColor: DDTheme.darkColor,
           appBar: DDAppBar(),
-          body: SingleChildScrollView(
+          body: Builder(
+            builder: (context) => SingleChildScrollView(
             child: Column(
               children: [
                 SizedBox(
@@ -47,11 +52,13 @@ class DDItemListScreen extends StatelessWidget {
                         onPressed: () {Navigator.pushNamed(context, DDRoutes.ItemSheet);},
                       );
                     }
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
-        )
+        ),
+      ),
     );
   }
 }

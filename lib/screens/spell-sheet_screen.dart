@@ -1,5 +1,7 @@
+import 'package:digitaldungeons/blocs/spell/spell-sheet/spell-sheet_bloc.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/index.dart';
 
@@ -21,63 +23,68 @@ class DDSpellSheetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return BlocProvider<DDSpellSheetBloc>(
+      create: (providerContext) => DDSpellSheetBloc(),
+      child: SafeArea(
         child: Scaffold(
           backgroundColor: DDTheme.lightColor,
-          body: SingleChildScrollView(
-            child: Stack(
-              children: [
-                Column(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 431,
-                      decoration: BoxDecoration(
-                          color: DDTheme.darkColor,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(50),
-                          )
+          body: Builder(
+            builder: (context) => SingleChildScrollView(
+              child: Stack(
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 431,
+                        decoration: BoxDecoration(
+                            color: DDTheme.darkColor,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(50),
+                            )
+                        ),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 100,
+                            ),
+                            Text(
+                              'Chain Lightning',
+                              textAlign: TextAlign.center,
+                              style: DDTextTheme.Raleway36PrimarySemiBold,
+                            ),
+                            SizedBox(
+                              height: 6,
+                            ),
+                            Text(
+                              '6 level evocation',
+                              textAlign: TextAlign.center,
+                              style: DDTextTheme.Raleway20AccentRegular,
+                            ),
+                            SizedBox(height: 33),
+                            DDInfoSection.main(DDSpellMainInfo, mockDataMain)
+                          ],
+                        ),
                       ),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 100,
-                          ),
-                          Text(
-                            'Chain Lightning',
-                            textAlign: TextAlign.center,
-                            style: DDTextTheme.Raleway36PrimarySemiBold,
-                          ),
-                          SizedBox(
-                            height: 6,
-                          ),
-                          Text(
-                            '6 level evocation',
-                            textAlign: TextAlign.center,
-                            style: DDTextTheme.Raleway20AccentRegular,
-                          ),
-                          SizedBox(height: 33),
-                          DDInfoSection.main(DDSpellMainInfo, mockDataMain)
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 24,),
-                    DDInfoSection.description(DDSpellDescriptionInfo, mockDataDescription,),
-                  ],
-                ),
-                Positioned(
-                  top: 24,
-                  right: 24,
-                  child: IconButton(
-                    iconSize: 54,
-                    icon: Image.asset(DDCloseIcon),
-                    onPressed: () => Navigator.pop(context),
+                      SizedBox(height: 24,),
+                      DDInfoSection.description(DDSpellDescriptionInfo, mockDataDescription,),
+                    ],
                   ),
-                ),
-              ],
-            )
+                  Positioned(
+                    top: 24,
+                    right: 24,
+                    child: IconButton(
+                      iconSize: 54,
+                      icon: Image.asset(DDCloseIcon),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ),
+                ],
+              )
+            ),
           ),
         )
+      ),
     );
   }
 }

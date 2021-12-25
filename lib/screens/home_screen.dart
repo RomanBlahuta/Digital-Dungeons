@@ -1,5 +1,7 @@
+import 'package:digitaldungeons/blocs/user/user_bloc.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:digitaldungeons/repositories/database_repository.dart';
 // import 'package:digitaldungeons/models/character_data.dart';
 
@@ -15,79 +17,84 @@ class DDHomeScreen extends StatelessWidget {
     // final DDDatabaseRepository characterDao = DDDatabaseRepository();
     // final character = Character("test", "123");
     // characterDao.saveCharacter(character);
-    return SafeArea(
+    return BlocProvider<DDUserBloc>(
+      create: (providerContext) => DDUserBloc(),
+      child: SafeArea(
         child: Scaffold(
           backgroundColor: DDTheme.darkColor,
           appBar: DDAppBar(),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 12.0,
-                ),
-                DDUserProfile(userName: userName, userEmail: userEmail),
-                SizedBox(
-                  height: 44.0,
-                ),
-                DDCategoryButton(
-                    text: "CREATE CHARACTER",
-                    onPressed: () {Navigator.pushNamed(context, DDRoutes.CharactersList);},
-                    // onPressed: () {print("Click event on Container");},
-                    icon: DDHumanIcon,
-                    background: DDCreateCharacterBack
-                ),
-                SizedBox(
-                  height: 44.0,
-                ),
-                DDCategoryButton(
-                    text: "MAGIC",
-                    onPressed: () {Navigator.pushNamed(context, DDRoutes.SpellBook);},
-                    icon: DDMagicIcon,
-                    background: DDMagicBack
-                ),
-                SizedBox(
-                  height: 44.0,
-                ),
-                DDCategoryButton(
-                    text: "ITEMS",
-                    onPressed: () {Navigator.pushNamed(context, DDRoutes.ItemList);},
-                    icon: DDSwordIcon,
-                    background: DDItemsBack
-                ),
-                SizedBox(
-                  height: 44.0,
-                ),
-                DDCategoryButton(
-                    text: "MONSTERS",
-                    onPressed: () {print("Click event on Container");},
-                    icon: DDMonsterIcon,
-                    background: DDMonstersBack
-                ),
-                SizedBox(
-                  height: 44.0,
-                ),
-                DDCategoryButton(
-                    text: "RACES",
-                    onPressed: () {print("Click event on Container");},
-                    icon: DDElfIcon,
-                    background: DDRacesBack
-                ),
-                SizedBox(
-                  height: 44.0,
-                ),
-                DDCategoryButton(
-                    text: "CLASSES",
-                    onPressed: () {print("Click event on Container");},
-                    icon: DDKnightIcon,
-                    background: DDClassesBack
-                ),
-                SizedBox(
-                  height: 44.0,
-                ),
-              ],
+          body: Builder(
+            builder: (context) => SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 12.0,
+                  ),
+                  DDUserProfile(userName: userName, userEmail: userEmail),
+                  SizedBox(
+                    height: 44.0,
+                  ),
+                  DDCategoryButton(
+                      text: "CREATE CHARACTER",
+                      onPressed: () {Navigator.pushNamed(context, DDRoutes.CharactersList);},
+                      // onPressed: () {print("Click event on Container");},
+                      icon: DDHumanIcon,
+                      background: DDCreateCharacterBack
+                  ),
+                  SizedBox(
+                    height: 44.0,
+                  ),
+                  DDCategoryButton(
+                      text: "MAGIC",
+                      onPressed: () {Navigator.pushNamed(context, DDRoutes.SpellBook);},
+                      icon: DDMagicIcon,
+                      background: DDMagicBack
+                  ),
+                  SizedBox(
+                    height: 44.0,
+                  ),
+                  DDCategoryButton(
+                      text: "ITEMS",
+                      onPressed: () {Navigator.pushNamed(context, DDRoutes.ItemList);},
+                      icon: DDSwordIcon,
+                      background: DDItemsBack
+                  ),
+                  SizedBox(
+                    height: 44.0,
+                  ),
+                  DDCategoryButton(
+                      text: "MONSTERS",
+                      onPressed: () {print("Click event on Container");},
+                      icon: DDMonsterIcon,
+                      background: DDMonstersBack
+                  ),
+                  SizedBox(
+                    height: 44.0,
+                  ),
+                  DDCategoryButton(
+                      text: "RACES",
+                      onPressed: () {print("Click event on Container");},
+                      icon: DDElfIcon,
+                      background: DDRacesBack
+                  ),
+                  SizedBox(
+                    height: 44.0,
+                  ),
+                  DDCategoryButton(
+                      text: "CLASSES",
+                      onPressed: () {print("Click event on Container");},
+                      icon: DDKnightIcon,
+                      background: DDClassesBack
+                  ),
+                  SizedBox(
+                    height: 44.0,
+                  ),
+                ],
+              ),
             ),
           ),
         )
+      ),
     );
   }
 }
