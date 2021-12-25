@@ -1,10 +1,9 @@
 import 'package:digitaldungeons/utils/index.dart';
-import 'package:digitaldungeons/widgets/app_bar.dart';
-import 'package:digitaldungeons/widgets/category_button.dart';
-import 'package:digitaldungeons/widgets/user_profile.dart';
 import 'package:flutter/material.dart';
 // import 'package:digitaldungeons/repositories/database_repository.dart';
 // import 'package:digitaldungeons/models/character_data.dart';
+
+import '../widgets/index.dart';
 
 class DDHomeScreen extends StatelessWidget {
 
@@ -51,7 +50,7 @@ class DDHomeScreen extends StatelessWidget {
                 ),
                 DDCategoryButton(
                     text: "ITEMS",
-                    onPressed: () {print("Click event on Container");},
+                    onPressed: () {Navigator.pushNamed(context, DDRoutes.ItemList);},
                     icon: DDSwordIcon,
                     background: DDItemsBack
                 ),

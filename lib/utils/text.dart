@@ -2,18 +2,46 @@ import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 
 class DDTextTheme {
+  static const TextStyle Raleway18BlackBold = TextStyle(
+    color: DDTheme.darkColor,
+    fontWeight: FontWeight.w700,
+    fontFamily: "Raleway",
+    fontSize: 18,
+  );
+
+  static const TextStyle Raleway18BlackRegular = TextStyle(
+    color: DDTheme.darkColor,
+    fontWeight: FontWeight.normal,
+    fontFamily: "Raleway",
+    fontSize: 18,
+  );
+
+  static const TextStyle Raleway18PrimaryBold = TextStyle(
+    color: DDTheme.primaryColor,
+    fontWeight: FontWeight.w700,
+    fontFamily: "Raleway",
+    fontSize: 18,
+  );
+  
   static const TextStyle Raleway20BlackSemiBold = TextStyle(
     color: DDTheme.darkColor,
     fontWeight: FontWeight.w600,
     fontFamily: "Raleway",
-    fontSize: 20
+    fontSize: 20,
+  );
+
+  static const TextStyle Raleway36PrimarySemiBold = TextStyle(
+    color: DDTheme.primaryColor,
+    fontWeight: FontWeight.w600,
+    fontFamily: "Raleway",
+    fontSize: 36,
   );
 
   static const TextStyle Raleway24BlackBold = TextStyle(
     color: DDTheme.darkColor,
     fontWeight: FontWeight.w700,
     fontFamily: "Raleway",
-    fontSize: 24
+    fontSize: 24,
   );
 
   static const TextStyle Raleway24BlackSemiBold = TextStyle(
@@ -39,7 +67,7 @@ class DDTextTheme {
     color: Colors.white,
     fontWeight: FontWeight.w700,
     fontFamily: "Raleway",
-    fontSize: 30
+    fontSize: 30,
   );
 
   static const TextStyle Raleway30AccentBold = TextStyle(
@@ -59,7 +87,21 @@ class DDTextTheme {
     color: DDTheme.primaryColor,
     fontWeight: FontWeight.w700,
     fontFamily: "Raleway",
-    fontSize: 24
+    fontSize: 24,
+  );
+
+  static const TextStyle Raleway24AccentBold = TextStyle(
+    color: DDTheme.accentColor,
+    fontWeight: FontWeight.w700,
+    fontFamily: "Raleway",
+    fontSize: 24,
+  );
+
+  static const TextStyle Raleway20PrimaryBold = TextStyle(
+    color: DDTheme.primaryColor,
+    fontWeight: FontWeight.w700,
+    fontFamily: "Raleway",
+    fontSize: 20,
   );
 
   static const TextStyle Raleway36PrimaryBold = TextStyle(
@@ -69,6 +111,20 @@ class DDTextTheme {
     fontSize: 36,
   );
 
+  static const TextStyle Raleway20WhiteRegular = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.normal,
+    fontFamily: "Raleway",
+    fontSize: 20,
+  );
+
+  static const TextStyle Raleway20AccentRegular = TextStyle(
+    color: DDTheme.accentColor,
+    fontWeight: FontWeight.normal,
+    fontFamily: "Raleway",
+    fontSize: 20,
+  );
+  
   static const TextStyle Raleway36AccentBoldStroke = TextStyle(
     color: DDTheme.accentColor,
     fontWeight: FontWeight.w700,
@@ -92,5 +148,12 @@ class DDTextTheme {
           color: Colors.black
       ),
     ]
+  );
+
+  static const TextStyle Raleway20AccentBold = TextStyle(
+    color: DDTheme.accentColor,
+    fontWeight: FontWeight.w700,
+    fontFamily: "Raleway",
+    fontSize: 20,
   );
 }
