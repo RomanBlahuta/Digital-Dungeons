@@ -3,17 +3,16 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/index.dart';
 
-class DDHPScreen extends StatelessWidget {
-  DDHPScreen({Key? key}) : super(key: key);
+class DDStoryNRersonalityScreen extends StatelessWidget {
+  DDStoryNRersonalityScreen({Key? key}) : super(key: key);
 
-  TextEditingController _experienceController = TextEditingController(text: 'default');
-  TextEditingController _initiativeController = TextEditingController();
-  TextEditingController _armorController = TextEditingController();
-  TextEditingController _speedController = TextEditingController();
-  TextEditingController _hitDiceController = TextEditingController();
-  TextEditingController _dethSavesController = TextEditingController();
+  TextEditingController _alignmentController = TextEditingController(text: 'default');
+  TextEditingController _personalityTraitsController = TextEditingController();
+  TextEditingController _idealsController = TextEditingController();
+  TextEditingController _bondsController = TextEditingController();
+  TextEditingController _flawsController = TextEditingController();
 
-  static const pageIndex = 1;
+  static const pageIndex = 2;
 
   // String name = '';
   // String player = '';
@@ -68,19 +67,18 @@ class DDHPScreen extends StatelessWidget {
                                   height: 22,
                                 ),
                                 Text(
-                                  'HP',
+                                  'Story & Personality',
                                   textAlign: TextAlign.center,
                                   style: DDTextTheme.Raleway36AccentSemiBold,
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Experience", controller: _experienceController),
-                                DDInputText(fieldName: "Initiative", controller: _initiativeController),
-                                DDInputText(fieldName: "Armor", controller: _armorController),
-                                DDInputText(fieldName: "Speed", controller: _speedController),
-                                DDInputText(fieldName: "Hit Dice", controller: _hitDiceController),
-                                DDInputText(fieldName: "Death Saves", controller: _dethSavesController),
+                                DDInputText(fieldName: "Alignment", controller: _alignmentController),
+                                DDInputText(fieldName: "Personality Traits", controller: _personalityTraitsController),
+                                DDInputText(fieldName: "Ideals", controller: _idealsController),
+                                DDInputText(fieldName: "Bonds", controller: _bondsController),
+                                DDInputText(fieldName: "Flaws", controller: _flawsController),
                                 Stack(
                                   children: [
                                     Align(
@@ -89,9 +87,9 @@ class DDHPScreen extends StatelessWidget {
                                         iconSize: 77,
                                         icon: Image.asset(DDArrowLeftIcon),
                                         onPressed: () {
-                                          print(_experienceController.text);
-                                          Navigator.pushNamed(context, DDRoutes.GeneralInfo);
-                                          },
+                                          print(_alignmentController.text);
+                                          Navigator.pushNamed(context, DDRoutes.HPInfo);
+                                        },
                                       ),
                                     ),
                                     Align(
@@ -100,9 +98,9 @@ class DDHPScreen extends StatelessWidget {
                                         iconSize: 77,
                                         icon: Image.asset(DDArrowIcon),
                                         onPressed: () {
-                                          print(_experienceController.text);
-                                          Navigator.pushNamed(context, DDRoutes.StoryNPersonalityInfo);
-                                          },
+                                          print(_alignmentController.text);
+                                          // Navigator.pushNamed(context, DDRoutes.GeneralInfo);
+                                        }
                                       ),
                                     ),
                                   ],
