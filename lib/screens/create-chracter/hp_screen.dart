@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/index.dart';
 
-class DDGeneralInfoScreen extends StatelessWidget {
-  DDGeneralInfoScreen({Key? key}) : super(key: key);
+class DDHPScreen extends StatelessWidget {
+  DDHPScreen({Key? key}) : super(key: key);
 
-  TextEditingController _nameController = TextEditingController(text: 'default');
-  TextEditingController _playerController = TextEditingController();
-  TextEditingController _levelController = TextEditingController();
-  TextEditingController _classController = TextEditingController();
-  TextEditingController _raceController = TextEditingController();
-  TextEditingController _backgroundController = TextEditingController();
+  TextEditingController _experienceController = TextEditingController(text: 'default');
+  TextEditingController _initiativeController = TextEditingController();
+  TextEditingController _armorController = TextEditingController();
+  TextEditingController _speedController = TextEditingController();
+  TextEditingController _hitDiceController = TextEditingController();
+  TextEditingController _dethSavesController = TextEditingController();
 
-  static const pageIndex = 0;
+  static const pageIndex = 1;
 
   // String name = '';
   // String player = '';
@@ -68,30 +68,41 @@ class DDGeneralInfoScreen extends StatelessWidget {
                                   height: 22,
                                 ),
                                 Text(
-                                  'General Info',
+                                  'HP',
                                   textAlign: TextAlign.center,
                                   style: DDTextTheme.Raleway36AccentSemiBold,
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Name", controller: _nameController),
-                                DDInputText(fieldName: "Player", controller: _playerController),
-                                DDInputText(fieldName: "Level", controller: _levelController),
-                                DDInputText(fieldName: "Class", controller: _classController),
-                                DDInputText(fieldName: "Race", controller: _raceController),
-                                DDInputText(fieldName: "Background", controller: _backgroundController),
-                                Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: IconButton(
-                                    iconSize: 77,
-                                    icon: Image.asset(DDArrowIcon),
-                                    onPressed: () {
-                                      print(_nameController.text);
-
-                                      Navigator.pushNamed(context, DDRoutes.HPInfo);
-                                    },
-                                  ),
+                                DDInputText(fieldName: "Experience", controller: _experienceController),
+                                DDInputText(fieldName: "Initiative", controller: _initiativeController),
+                                DDInputText(fieldName: "Armor", controller: _armorController),
+                                DDInputText(fieldName: "Speed", controller: _speedController),
+                                DDInputText(fieldName: "Hit Dice", controller: _hitDiceController),
+                                DDInputText(fieldName: "Death Saves", controller: _dethSavesController),
+                                Stack(
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.bottomLeft,
+                                      child: IconButton(
+                                        iconSize: 77,
+                                        icon: Image.asset(DDArrowLeftIcon),
+                                        onPressed: () {
+                                          print(_experienceController.text);
+                                          Navigator.pushNamed(context, DDRoutes.GeneralInfo);
+                                          },
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomRight,
+                                      child: IconButton(
+                                        iconSize: 77,
+                                        icon: Image.asset(DDArrowIcon),
+                                        onPressed: () => print(_experienceController.text),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 SizedBox(height: 30,),
                               ],

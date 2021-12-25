@@ -10,4 +10,5 @@ class DDRoutes {
   static const String ItemList = 'item-list';
   static const String ItemSheet = 'item-sheet';
   static const String GeneralInfo = 'general-info';
+  static const String HPInfo = 'hp-info';
 }

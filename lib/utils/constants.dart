@@ -8,6 +8,7 @@ const DDKnightIcon = "assets/images/icons/DD_knight.png";
 const DDCloseIcon = "assets/images/icons/DD_close.png";
 const DDCloseLightIcon = "assets/images/icons/DD_close_light.png";
 const DDArrowIcon = "assets/images/icons/DD_arrow.png";
+const DDArrowLeftIcon = "assets/images/icons/DD_arrow_left.png";
 
 
 const DDSpellBookIcon = "assets/images/icons/DD_spell_book.png";

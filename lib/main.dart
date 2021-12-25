@@ -1,3 +1,4 @@
+import 'package:digitaldungeons/screens/create-chracter/hp_screen.dart';
 import 'package:digitaldungeons/screens/index.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +56,9 @@ class MyApp extends StatelessWidget {
         }
         else if (settings.name == DDRoutes.GeneralInfo) {
           return MaterialPageRoute(builder: (context) => DDGeneralInfoScreen());
+        }
+        else if (settings.name == DDRoutes.HPInfo) {
+          return MaterialPageRoute(builder: (context) => DDHPScreen());
         }
       }
     );
