@@ -224,6 +224,12 @@ class DDCharacterSheetScreen extends StatelessWidget {
             ],
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: DDTheme.accentColor,
+          child: const Icon(Icons.sports_esports),
+          splashColor: DDTheme.primaryColor,
+        ),
       ),
     );
   }
