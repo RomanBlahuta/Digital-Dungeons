@@ -79,32 +79,9 @@ class DDStoryNRersonalityScreen extends StatelessWidget {
                                 DDInputText(fieldName: "Ideals", controller: _idealsController),
                                 DDInputText(fieldName: "Bonds", controller: _bondsController),
                                 DDInputText(fieldName: "Flaws", controller: _flawsController),
-                                Stack(
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.bottomLeft,
-                                      child: IconButton(
-                                        iconSize: 77,
-                                        icon: Image.asset(DDArrowLeftIcon),
-                                        onPressed: () {
-                                          print(_alignmentController.text);
-                                          Navigator.pushNamed(context, DDRoutes.HPInfo);
-                                        },
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: Alignment.bottomRight,
-                                      child: IconButton(
-                                        iconSize: 77,
-                                        icon: Image.asset(DDArrowIcon),
-                                        onPressed: () {
-                                          print(_alignmentController.text);
-                                          // Navigator.pushNamed(context, DDRoutes.GeneralInfo);
-                                        }
-                                      ),
-                                    ),
-                                  ],
-                                ),
+
+                                DDSwitchPagesController(leftRoute: DDRoutes.HPInfo, rightRoute: DDRoutes.CharacteristicsInfo,),
+
                                 SizedBox(height: 30,),
                               ],
                             ),

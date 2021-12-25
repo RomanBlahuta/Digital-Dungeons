@@ -7,3 +7,4 @@ export 'list-button.dart';
 export 'app-bar.dart';
 export 'dots-indicator.dart';
 export 'input-text.dart';
+export 'switch-pages-controller.dart';

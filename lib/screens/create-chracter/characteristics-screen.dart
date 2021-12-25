@@ -3,24 +3,18 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/index.dart';
 
-class DDGeneralInfoScreen extends StatelessWidget {
-  DDGeneralInfoScreen({Key? key}) : super(key: key);
+class DDCharacteristicsScreen extends StatelessWidget {
+  DDCharacteristicsScreen({Key? key}) : super(key: key);
 
-  TextEditingController _nameController = TextEditingController(text: 'default');
-  TextEditingController _playerController = TextEditingController();
-  TextEditingController _levelController = TextEditingController();
-  TextEditingController _classController = TextEditingController();
-  TextEditingController _raceController = TextEditingController();
-  TextEditingController _backgroundController = TextEditingController();
+  TextEditingController _strengthController = TextEditingController(text: 'default');
+  TextEditingController _dexterityController = TextEditingController();
+  TextEditingController _constitutionController = TextEditingController();
+  TextEditingController _intelectController = TextEditingController();
+  TextEditingController _wisdomController = TextEditingController();
+  TextEditingController _charismaController = TextEditingController();
+  TextEditingController _perceptionController = TextEditingController();
 
-  static const pageIndex = 0;
-
-  // String name = '';
-  // String player = '';
-  // String level = '';
-  // String char_class = '';
-  // String race = '';
-  // String background = '';
+  static const pageIndex = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -68,21 +62,23 @@ class DDGeneralInfoScreen extends StatelessWidget {
                                   height: 22,
                                 ),
                                 Text(
-                                  'General Info',
+                                  'Characteristics',
                                   textAlign: TextAlign.center,
                                   style: DDTextTheme.Raleway36AccentSemiBold,
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Name", controller: _nameController),
-                                DDInputText(fieldName: "Player", controller: _playerController),
-                                DDInputText(fieldName: "Level", controller: _levelController),
-                                DDInputText(fieldName: "Class", controller: _classController),
-                                DDInputText(fieldName: "Race", controller: _raceController),
-                                DDInputText(fieldName: "Background", controller: _backgroundController),
+                                DDInputText(fieldName: "Strength", controller: _strengthController),
+                                DDInputText(fieldName: "Dexterity", controller: _dexterityController),
+                                DDInputText(fieldName: "Constitution", controller: _constitutionController),
+                                DDInputText(fieldName: "Intelect", controller: _intelectController),
+                                DDInputText(fieldName: "Wisdom", controller: _wisdomController),
+                                DDInputText(fieldName: "Charisma", controller: _charismaController),
+                                DDInputText(fieldName: "Perception", controller: _perceptionController),
 
-                                DDSwitchPagesController(rightRoute: DDRoutes.HPInfo,),
+                                DDSwitchPagesController(leftRoute: DDRoutes.StoryNPersonalityInfo, rightRoute: DDRoutes.HPInfo,),
+
                                 SizedBox(height: 30,),
                               ],
                             ),

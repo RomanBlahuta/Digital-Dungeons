@@ -81,32 +81,9 @@ class DDHPScreen extends StatelessWidget {
                                 DDInputText(fieldName: "Speed", controller: _speedController),
                                 DDInputText(fieldName: "Hit Dice", controller: _hitDiceController),
                                 DDInputText(fieldName: "Death Saves", controller: _dethSavesController),
-                                Stack(
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.bottomLeft,
-                                      child: IconButton(
-                                        iconSize: 77,
-                                        icon: Image.asset(DDArrowLeftIcon),
-                                        onPressed: () {
-                                          print(_experienceController.text);
-                                          Navigator.pushNamed(context, DDRoutes.GeneralInfo);
-                                          },
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: Alignment.bottomRight,
-                                      child: IconButton(
-                                        iconSize: 77,
-                                        icon: Image.asset(DDArrowIcon),
-                                        onPressed: () {
-                                          print(_experienceController.text);
-                                          Navigator.pushNamed(context, DDRoutes.StoryNPersonalityInfo);
-                                          },
-                                      ),
-                                    ),
-                                  ],
-                                ),
+
+                                DDSwitchPagesController(leftRoute: DDRoutes.GeneralInfo, rightRoute: DDRoutes.StoryNPersonalityInfo,),
+
                                 SizedBox(height: 30,),
                               ],
                             ),
