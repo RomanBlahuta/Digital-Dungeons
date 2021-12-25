@@ -68,6 +68,9 @@ class MyApp extends StatelessWidget {
         else if (settings.name == DDRoutes.ProficienciesNTraitsInfo) {
           return MaterialPageRoute(builder: (context) => DDProficienciesNTraitsScreen());
         }
+        else if (settings.name == DDRoutes.AttacksNSpellcastingInfo) {
+          return MaterialPageRoute(builder: (context) => DDAttacksNSpellcastingScreen());
+        }
       }
     );
   }

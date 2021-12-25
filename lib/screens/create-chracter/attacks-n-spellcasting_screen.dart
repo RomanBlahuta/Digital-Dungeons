@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/index.dart';
 
-class DDProficienciesNTraitsScreen extends StatelessWidget {
-  DDProficienciesNTraitsScreen({Key? key}) : super(key: key);
+class DDAttacksNSpellcastingScreen extends StatelessWidget {
+  DDAttacksNSpellcastingScreen({Key? key}) : super(key: key);
 
-  TextEditingController _otherProficienciesNLanguagesController = TextEditingController(text: 'default');
-  TextEditingController _featuresNTraitsController = TextEditingController();
+  TextEditingController _nameController01 = TextEditingController(text: 'default');
+  TextEditingController _ATKBonusController01 = TextEditingController();
+  TextEditingController _damageTypeController01 = TextEditingController();
+  TextEditingController _descriptionController01 = TextEditingController();
 
-  static const pageIndex = 4;
+  static const pageIndex = 5;
 
   @override
   Widget build(BuildContext context) {
@@ -57,17 +59,24 @@ class DDProficienciesNTraitsScreen extends StatelessWidget {
                                   height: 22,
                                 ),
                                 Text(
-                                  'Proficiencies & Traits',
+                                  'Attacks & Spellcasting',
                                   textAlign: TextAlign.center,
                                   style: DDTextTheme.Raleway36AccentSemiBold,
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Other Proficiencies & Languages", controller: _otherProficienciesNLanguagesController),
-                                DDInputText(fieldName: "Features &Traits", controller: _featuresNTraitsController),
+                                DDInputText(fieldName: "Name", controller: _nameController01),
+                                DDInputText(fieldName: "ATK Bonus", controller: _ATKBonusController01),
+                                DDInputText(fieldName: "Damage/Type", controller: _damageTypeController01),
+                                DDInputText(fieldName: "Description", controller: _descriptionController01),
 
-                                DDSwitchPagesController(leftRoute: DDRoutes.CharacteristicsInfo, rightRoute: DDRoutes.AttacksNSpellcastingInfo,),
+                                Divider(
+                                  color: DDTheme.accentColor,
+                                  thickness: 2.0,
+                                ),
+
+                                DDSwitchPagesController(leftRoute: DDRoutes.ProficienciesNTraitsInfo, rightRoute: DDRoutes.ProficienciesNTraitsInfo,),
 
                                 SizedBox(height: 30,),
                               ],
