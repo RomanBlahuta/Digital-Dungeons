@@ -1,6 +1,6 @@
 export 'welcome_screen.dart';
-export 'signin_screen.dart';
-export 'signup_screen.dart';
+export 'sign-in_screen.dart';
+export 'sign-up_screen.dart';
 export 'home_screen.dart';
 export 'character-sheet_screen.dart';
 export 'home_screen.dart';

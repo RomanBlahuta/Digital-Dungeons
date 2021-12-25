@@ -117,13 +117,6 @@ class DDTextTheme {
     fontFamily: "Raleway",
     fontSize: 20,
   );
-
-  static const TextStyle Raleway20AccentRegular = TextStyle(
-    color: DDTheme.accentColor,
-    fontWeight: FontWeight.normal,
-    fontFamily: "Raleway",
-    fontSize: 20,
-  );
   
   static const TextStyle Raleway36AccentBoldStroke = TextStyle(
     color: DDTheme.accentColor,
