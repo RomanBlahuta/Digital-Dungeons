@@ -1,6 +1,7 @@
 import 'package:digitaldungeons/repositories/repository.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'dart:developer';
 
 class DDApiRepository extends Repository {
   final String baseUrl = "https://www.dnd5eapi.co/api/";
@@ -8,20 +9,24 @@ class DDApiRepository extends Repository {
   DDApiRepository(): super();
 
   Future<Map<String, dynamic>> fetchSpells() async {
-    return fetchUrl("skills/");
+    return fetchUrl("spells/");
   }
 
   Future<Map<String, dynamic>> fetchUrl(String page) async {
     final response = await http.get(Uri.parse(baseUrl + page));
     if (response.statusCode == 200) {
-      return toMapFromJson(response.body);
+
+      // log(response.body);
+      return jsonDecode(response.body);
     } else {
       throw Exception('Failed to load album');
     }
   }
 
   Map<String, dynamic> toMapFromJson(String responseBody) {
-    return json.decode(responseBody).cast<Map<String, dynamic>>();
+    var encoder = new JsonEncoder.withIndent("     ");
+    var jsonStr = encoder.convert(responseBody);
+    return jsonDecode(jsonStr);
   }
 
 }

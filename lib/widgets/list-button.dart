@@ -7,7 +7,7 @@ class DDListButton extends StatelessWidget {
   final String? icon;
   final void Function() onPressed;
 
-  const DDListButton({Key? key, required this.name, required this.info, this.icon, required this.onPressed}) : super(key: key);
+  const DDListButton({Key? key, required this.name, this.info="", this.icon, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class DDListButton extends StatelessWidget {
                 children: [
                   Text(name, style: DDTextTheme.Raleway24BlackSemiBold,),
                   SizedBox(height: 2,),
-                  Text(info, style: DDTextTheme.Raleway20BlackRegular,)
+                  info != ""? Text(info, style: DDTextTheme.Raleway20BlackRegular,) : SizedBox.shrink()
                 ],
               )
             ],
