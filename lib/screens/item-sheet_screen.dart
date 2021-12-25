@@ -66,7 +66,7 @@ class DDItemSheetScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 30,),
                     // DDInfoSection.description(DDItemInfo, mockDataMain),
-                    DDInfoSection.row_parametrs(DDItemInfo, mockDataMain)
+                    DDInfoSection.row_parameters(DDItemInfo, mockDataMain)
                   ],
                 ),
                 Positioned(
@@ -75,7 +75,7 @@ class DDItemSheetScreen extends StatelessWidget {
                   child: IconButton(
                     iconSize: 54,
                     icon: Image.asset(DDCloseIcon),
-                    onPressed: () => print('Close button click event'),
+                    onPressed: () => Navigator.pop(context),
                   ),
                 ),
               ],
