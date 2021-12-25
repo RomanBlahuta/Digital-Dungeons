@@ -30,6 +30,8 @@ const DDCharacterMainInfo = [
 ];
 
 const DDCharacterGeneralInfo = [
+  'Current HP',
+  'Temporary HP',
   'Experience',
   'Initiative',
   'Armor',

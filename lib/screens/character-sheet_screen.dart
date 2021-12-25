@@ -14,6 +14,8 @@ class DDCharacterSheetScreen extends StatelessWidget {
   ];
 
   final List<String> mockDataGeneral = [
+    '11',
+    '10',
     '100',
     '+10',
     '15',
