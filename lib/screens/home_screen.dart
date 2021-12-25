@@ -1,5 +1,7 @@
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
+// import 'package:digitaldungeons/repositories/database_repository.dart';
+// import 'package:digitaldungeons/models/character_data.dart';
 
 import '../widgets/index.dart';
 
@@ -10,6 +12,9 @@ class DDHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final DDDatabaseRepository characterDao = DDDatabaseRepository();
+    // final character = Character("test", "123");
+    // characterDao.saveCharacter(character);
     return SafeArea(
         child: Scaffold(
           backgroundColor: DDTheme.darkColor,
