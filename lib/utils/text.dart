@@ -22,6 +22,13 @@ class DDTextTheme {
     fontFamily: "Raleway",
     fontSize: 18,
   );
+
+  static const TextStyle Raleway18AccentBold = TextStyle(
+    color: DDTheme.lightColor,
+    fontWeight: FontWeight.w700,
+    fontFamily: "Raleway",
+    fontSize: 18,
+  );
   
   static const TextStyle Raleway20BlackSemiBold = TextStyle(
     color: DDTheme.darkColor,
@@ -148,5 +155,12 @@ class DDTextTheme {
     fontWeight: FontWeight.w700,
     fontFamily: "Raleway",
     fontSize: 20,
+  );
+
+  static const TextStyle Raleway36AccentSemiBold = TextStyle(
+    color: DDTheme.accentColor,
+    fontWeight: FontWeight.w600,
+    fontFamily: "Raleway",
+    fontSize: 36,
   );
 }
