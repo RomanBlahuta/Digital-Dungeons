@@ -118,7 +118,10 @@ class DDEquipmentScreen extends StatelessWidget {
                     child: IconButton(
                       iconSize: 54,
                       icon: Image.asset(DDCloseLightIcon),
-                      onPressed: () => print('Close button click event'),
+                      onPressed: () => {
+                        Navigator.pushNamed(context, DDRoutes.CharactersList),
+                        context.read<DDCharacterEditBloc>().add(DDClearCharacterDataEvent())
+                      },
                     ),
                   ),
                 ],

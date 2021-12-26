@@ -1,20 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-enum DDCharacterInputType {
-  Name,
-  Player,
-  Level,
-  Class,
-  Race,
-  Background,
-  // Experience,
-  // Initiative,
-  // Armor,
-  // Speed,
-  // Hit_Dice,
-  // Death_Saves,
-}
 
 abstract class DDCharacterEvent extends Equatable{}
 

@@ -8,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:digitaldungeons/screens/character-sheet_screen.dart';
-import 'dart:developer';
 
 class DDCharacterEditBloc extends Bloc<DDCharacterEvent, DDCharacterState> {
 

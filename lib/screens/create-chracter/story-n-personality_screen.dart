@@ -1,3 +1,7 @@
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_bloc.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_state.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_events.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 
@@ -74,12 +78,22 @@ class DDStoryNRersonalityScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                // DDInputText(fieldName: "Alignment", controller: _alignmentController),
-                                // DDInputText(fieldName: "Personality Traits", controller: _personalityTraitsController),
-                                // DDInputText(fieldName: "Ideals", controller: _idealsController),
-                                // DDInputText(fieldName: "Bonds", controller: _bondsController),
-                                // DDInputText(fieldName: "Flaws", controller: _flawsController),
-
+                                BlocBuilder<DDCharacterEditBloc, DDCharacterState>(builder: (_, characterDataState) {
+                                if (characterDataState is DDCharacterDataState){
+                                return Column(
+                                children: [
+                                  DDInputText(displayName: "Alignment", controller: TextEditingController(text: characterDataState.characterData["alignment"]), fieldName: "alignment",),
+                                  DDInputText(displayName: "Personality Traits", controller: TextEditingController(text: characterDataState.characterData["personality"]), fieldName: "personality",),
+                                  DDInputText(displayName: "Ideals", controller: TextEditingController(text: characterDataState.characterData["ideals"]), fieldName: "ideals",),
+                                  DDInputText(displayName: "Bonds", controller: TextEditingController(text: characterDataState.characterData["bonds"]), fieldName: "bonds",),
+                                  DDInputText(displayName: "Flaws", controller: TextEditingController(text: characterDataState.characterData["flaws"]), fieldName: "flaws",),
+                                ]
+                                );
+                                }
+                                else {
+                                  return SizedBox.shrink();
+                                }
+                                }),
                                 DDSwitchPagesController(leftRoute: DDRoutes.HPInfo, rightRoute: DDRoutes.CharacteristicsInfo,),
 
                                 SizedBox(height: 30,),
@@ -95,7 +109,10 @@ class DDStoryNRersonalityScreen extends StatelessWidget {
                     child: IconButton(
                       iconSize: 54,
                       icon: Image.asset(DDCloseLightIcon),
-                      onPressed: () => print('Close button click event'),
+                      onPressed: () => {
+                        Navigator.pushNamed(context, DDRoutes.CharactersList),
+                        context.read<DDCharacterEditBloc>().add(DDClearCharacterDataEvent())
+                      },
                     ),
                   ),
                 ],

@@ -45,35 +45,35 @@ class DDCharactersListScreen extends StatelessWidget {
             child: Column (
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding (
-                  padding: EdgeInsets.only(left: 20, top: 22, bottom: 22),
-                  child: Text("CURRENTLY USED", style: DDTextTheme.Raleway30AccentBold,),
-                ),
-                (_currentCharacters.length > 0)
-                    ?
-                ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    padding: const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 20),
-                    itemCount: _currentCharacters.length,
-                    itemBuilder: (context, index) {
-                      return DDListButton(
-                        name: _currentCharacters[index]['name'],
-                        info: _currentCharacters[index]['info'],
-                        icon: _currentCharacters[index]['icon'],
-                        onPressed: () {},
-                      );
-                    }
-                )
-                    :
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: Text(
-                    'Please create new character for the game  or choose one from the saved.',
-                    style: DDTextTheme.Raleway18WhiteRegular,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+                // Padding (
+                //   padding: EdgeInsets.only(left: 20, top: 22, bottom: 22),
+                //   child: Text("CURRENTLY USED", style: DDTextTheme.Raleway30AccentBold,),
+                // ),
+                // (_currentCharacters.length > 0)
+                //     ?
+                // ListView.builder(
+                //     shrinkWrap: true,
+                //     physics: NeverScrollableScrollPhysics(),
+                //     padding: const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 20),
+                //     itemCount: _currentCharacters.length,
+                //     itemBuilder: (context, index) {
+                //       return DDListButton(
+                //         name: _currentCharacters[index]['name'],
+                //         info: _currentCharacters[index]['info'],
+                //         icon: _currentCharacters[index]['icon'],
+                //         onPressed: () {},
+                //       );
+                //     }
+                // )
+                //     :
+                // SizedBox(
+                //   width: MediaQuery.of(context).size.width,
+                //   child: Text(
+                //     'Please create new character for the game  or choose one from the saved.',
+                //     style: DDTextTheme.Raleway18WhiteRegular,
+                //     textAlign: TextAlign.center,
+                //   ),
+                // ),
                 Padding (
                   padding: EdgeInsets.only(left: 20, top: 22, bottom: 22),
                   child: Text("SAVED CHARACTERS", style: DDTextTheme.Raleway30AccentBold,),

@@ -117,6 +117,26 @@ class DDCharacterSheetScreen extends StatelessWidget {
                     characterData["race"].toString(),
                     characterData["background"].toString(),
                   ];
+
+                  final List<String> dataGeneral = [
+                    characterData["experience"].toString(),
+                    characterData["initiative"].toString(),
+                    characterData["armor"].toString(),
+                    characterData["speed"].toString(),
+                    characterData["hit_dice"].toString(),
+                    characterData["death_saves"].toString(),
+                  ];
+
+                  final List<String> dataCharacteristics = [
+                    characterData["strength"].toString(),
+                    characterData["dexterity"].toString(),
+                    characterData["constitution"].toString(),
+                    characterData["intelect"].toString(),
+                    characterData["wisdom"].toString(),
+                    characterData["charisma"].toString(),
+                    characterData["perception"].toString(),
+                  ];
+
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -216,13 +236,13 @@ class DDCharacterSheetScreen extends StatelessWidget {
                         height: 24,
                       ),
                       DDInfoSection.parameter(
-                          'GENERAL', DDCharacterGeneralInfo, mockDataGeneral),
+                          'GENERAL', DDCharacterGeneralInfo, dataGeneral),
                       SizedBox(
                         height: 24,
                       ),
                       DDInfoSection.parameter(
                           'CHARACTERISTICS', DDCharacterCharacteristicsInfo,
-                          mockDataCharacteristics),
+                          dataCharacteristics),
                       SizedBox(
                         height: 24,
                       ),

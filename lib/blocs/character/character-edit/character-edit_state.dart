@@ -27,15 +27,3 @@ class DDCharactersListState extends DDCharacterState {
   List<Object?> get props => [charactersList];
 }
 
-
-// // todo: add more
-//
-// class DDCharacterEquipmentState extends DDCharacterState {
-//   final String money;
-//   final String equipment;
-//
-//   DDCharacterEquipmentState(this.money, this.equipment);
-//
-//   @override
-//   List<Object?> get props => [money, equipment];
-// }
