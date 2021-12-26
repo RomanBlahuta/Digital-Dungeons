@@ -7,9 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/auth/sign-up/sign-up_events.dart';
 
 class DDSignUpScreen extends StatelessWidget {
-  final String title;
 
-  DDSignUpScreen(this.title);
+  DDSignUpScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -58,20 +57,23 @@ class DDSignUpScreen extends StatelessWidget {
                       child: Text(
                         'Name',
                         textAlign: TextAlign.center,
-                        style: DDTextTheme.Raleway20AccentRegular,
+                        style: DDTextTheme.Raleway20AccentBold,
                       ),
                     ),
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       onChanged: (value) {
-                        //todo
                         context.read<DDSignUpBloc>().add(DDSignUpInputEvent(value.toString().trim(), DDSignUpInputType.Name));
                       },
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.start,
                       decoration: const InputDecoration(
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: DDTheme.accentColor),
+                        ),
                         filled: true,
                         fillColor: DDTheme.primaryColor,
                         labelText: 'Enter your name',
+                        labelStyle: TextStyle(color: DDTheme.darkColor),
                       ),
                     ),
                     SizedBox(
@@ -82,20 +84,23 @@ class DDSignUpScreen extends StatelessWidget {
                       child: Text(
                         'Email',
                         textAlign: TextAlign.center,
-                        style: DDTextTheme.Raleway20AccentRegular,
+                        style: DDTextTheme.Raleway20AccentBold,
                       ),
                     ),
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       onChanged: (value) {
-                        //todo
                         context.read<DDSignUpBloc>().add(DDSignUpInputEvent(value.toString().trim(), DDSignUpInputType.EMail));
                       },
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.start,
                       decoration: const InputDecoration(
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: DDTheme.accentColor),
+                        ),
                         filled: true,
                         fillColor: DDTheme.primaryColor,
                         labelText: 'Enter your email',
+                        labelStyle: TextStyle(color: DDTheme.darkColor),
                       ),
                     ),
                     SizedBox(
@@ -106,7 +111,7 @@ class DDSignUpScreen extends StatelessWidget {
                       child: Text(
                         'Password',
                         textAlign: TextAlign.center,
-                        style: DDTextTheme.Raleway20AccentRegular,
+                        style: DDTextTheme.Raleway20AccentBold,
                       ),
                     ),
                     TextFormField(
@@ -117,14 +122,17 @@ class DDSignUpScreen extends StatelessWidget {
                         }
                       },
                       onChanged: (value) {
-                        //todo
                         context.read<DDSignUpBloc>().add(DDSignUpInputEvent(value, DDSignUpInputType.Password));
                       },
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.start,
                       decoration: const InputDecoration(
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: DDTheme.accentColor),
+                        ),
                         filled: true,
                         fillColor: DDTheme.primaryColor,
                         labelText: 'Enter your password',
+                        labelStyle: TextStyle(color: DDTheme.darkColor),
                       ),
                     ),
                     SizedBox(
@@ -137,7 +145,6 @@ class DDSignUpScreen extends StatelessWidget {
                       type: DDButtonType.Filled,
                       textStyle: DDTextTheme.Raleway24BlackBold,
                       onPressed: () async {
-                        //todo
                         context.read<DDSignUpBloc>().add(DDSignUpSubmitEvent(context));
                       }
                     )

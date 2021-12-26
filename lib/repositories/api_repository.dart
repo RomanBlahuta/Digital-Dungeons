@@ -12,6 +12,10 @@ class DDApiRepository extends Repository {
     return fetchUrl("spells/");
   }
 
+  Future<Map<String, dynamic>> fetchItems() async {
+    return fetchUrl("equipment/");
+  }
+
   Future<Map<String, dynamic>> fetchUrl(String page) async {
     final response = await http.get(Uri.parse(baseUrl + page));
     if (response.statusCode == 200) {
