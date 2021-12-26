@@ -41,14 +41,13 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           onGenerateRoute: (settings) {
           if (settings.name == DDRoutes.Welcome) {
-            // return MaterialPageRoute(builder: (context) => DDWelcomeScreen());
-            return MaterialPageRoute(builder: (context) => DDHomeScreen());
+            return MaterialPageRoute(builder: (context) => DDWelcomeScreen());
           }
           else if (settings.name == DDRoutes.SignIn) {
             return MaterialPageRoute(builder: (context) => DDSignInScreen());
           }
           else if (settings.name == DDRoutes.SignUp) {
-            return MaterialPageRoute(builder: (context) => DDSignUpScreen('Sign Up'));
+            return MaterialPageRoute(builder: (context) => DDSignUpScreen());
           }
           else if (settings.name == DDRoutes.Home) {
             return MaterialPageRoute(builder: (context) => DDHomeScreen());

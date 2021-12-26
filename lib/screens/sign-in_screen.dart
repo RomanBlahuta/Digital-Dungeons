@@ -56,20 +56,24 @@ class DDSignInScreen extends StatelessWidget {
                       child: Text(
                         'Email',
                         textAlign: TextAlign.center,
-                        style: DDTextTheme.Raleway20AccentRegular,
+                        style: DDTextTheme.Raleway20AccentBold,
                       ),
                     ),
                     TextFormField(
+                      cursorColor: DDTheme.darkColor,
                       keyboardType: TextInputType.emailAddress,
                       onChanged: (value) {
-                        //todo
                         context.read<DDSignInBloc>().add(DDSignInInputEvent(value.toString().trim(), DDSignInInputType.EMail));
                       },
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.start,
                       decoration: const InputDecoration(
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: DDTheme.accentColor),
+                        ),
                         filled: true,
                         fillColor: DDTheme.primaryColor,
                         labelText: 'Enter your email',
+                        labelStyle: TextStyle(color: DDTheme.darkColor),
                       ),
                     ),
                     SizedBox(
@@ -80,10 +84,11 @@ class DDSignInScreen extends StatelessWidget {
                       child: Text(
                         'Password',
                         textAlign: TextAlign.center,
-                        style: DDTextTheme.Raleway20AccentRegular,
+                        style: DDTextTheme.Raleway20AccentBold,
                       ),
                     ),
                     TextFormField(
+                      cursorColor: DDTheme.darkColor,
                       obscureText: true,
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -91,15 +96,17 @@ class DDSignInScreen extends StatelessWidget {
                         }
                       },
                       onChanged: (value) {
-                        //todo
-                        
                         context.read<DDSignInBloc>().add(DDSignInInputEvent(value, DDSignInInputType.Password));
                       },
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.start,
                       decoration: const InputDecoration(
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: DDTheme.accentColor),
+                        ),
                         filled: true,
                         fillColor: DDTheme.primaryColor,
                         labelText: 'Enter your password',
+                        labelStyle: TextStyle(color: DDTheme.darkColor),
                       ),
                     ),
                     SizedBox(
