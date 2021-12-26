@@ -1,12 +1,21 @@
 import 'package:equatable/equatable.dart';
 
-class DDSpellListState extends Equatable {
-  // todo: Enter model type here instead of dynamic
-  final dynamic userModel;
-
-  DDSpellListState(this.userModel);
-
+abstract class DDSpellListState extends Equatable {
 
   @override
-  List<Object?> get props => [/* todo: model properties here */];
+  List<Object?> get props => [];
+}
+
+class DDSpellListLoadedState extends DDSpellListState {
+  final List<dynamic> spells;
+
+  DDSpellListLoadedState(this.spells);
+
+  @override
+  List<Object?> get props => [spells];
+}
+
+class DDSpellListInitState extends DDSpellListState{
+  @override
+  List<Object?> get props => [];
 }

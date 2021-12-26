@@ -1,6 +1,9 @@
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_bloc.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_state.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_events.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../widgets/index.dart';
 
 class DDEquipmentScreen extends StatelessWidget {
@@ -64,19 +67,39 @@ class DDEquipmentScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Money", controller: _moneyController),
-                                DDInputText(fieldName: "Equipment", controller: _equipmentsController),
+                                BlocBuilder<DDCharacterEditBloc, DDCharacterState>(builder: (_, characterDataState) {
+                                  if (characterDataState is DDCharacterDataState){
+                                    return Column(
+                                      children: [
+                                        DDInputText(displayName: "Money", controller: TextEditingController(text: characterDataState.characterData["money"]), fieldName: "money"),
+                                        DDInputText(displayName: "Equipment", controller: TextEditingController(text: characterDataState.characterData["equipment"]), fieldName: "equipment"),
 
-                                SizedBox(height: 50,),
+                                        SizedBox(height: 50,),
 
-                                DDButton(
-                                    text: "Save",
-                                    onPressed:() {},
-                                    color: DDTheme.darkColor,
-                                    type: DDButtonType.Filled,
-                                    size: DDButtonSizes.Small,
-                                    textStyle: DDTextTheme.Raleway18AccentBold
-                                ),
+                                        DDButton(
+                                            text: "Save",
+                                            color: DDTheme.darkColor,
+                                            type: DDButtonType.Filled,
+                                            size: DDButtonSizes.Small,
+                                            textStyle: DDTextTheme.Raleway18AccentBold,
+                                            onPressed: () async {
+
+                                              if (characterDataState.characterData["edit"] == "1") {
+                                                context.read<DDCharacterEditBloc>().add(DDEditCharacterTabEvent(context));
+                                              }
+                                              else {
+                                                context.read<DDCharacterEditBloc>().add(DDAddNewCharacterTabEvent(context));
+                                              }
+                                              context.read<DDCharacterEditBloc>().add(DDClearCharacterDataEvent());
+                                            }
+                                        ),
+                                      ]
+                                    );
+                                  }
+                                  else {
+                                    return SizedBox.shrink();
+                                  }
+                                }),
 
                                 SizedBox(height: 50,),
 
@@ -95,7 +118,10 @@ class DDEquipmentScreen extends StatelessWidget {
                     child: IconButton(
                       iconSize: 54,
                       icon: Image.asset(DDCloseLightIcon),
-                      onPressed: () => print('Close button click event'),
+                      onPressed: () => {
+                        Navigator.pushNamed(context, DDRoutes.CharactersList),
+                        context.read<DDCharacterEditBloc>().add(DDClearCharacterDataEvent())
+                      },
                     ),
                   ),
                 ],

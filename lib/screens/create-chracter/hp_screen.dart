@@ -1,3 +1,7 @@
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_bloc.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_state.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_events.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 
@@ -75,13 +79,23 @@ class DDHPScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Experience", controller: _experienceController),
-                                DDInputText(fieldName: "Initiative", controller: _initiativeController),
-                                DDInputText(fieldName: "Armor", controller: _armorController),
-                                DDInputText(fieldName: "Speed", controller: _speedController),
-                                DDInputText(fieldName: "Hit Dice", controller: _hitDiceController),
-                                DDInputText(fieldName: "Death Saves", controller: _dethSavesController),
-
+                                BlocBuilder<DDCharacterEditBloc, DDCharacterState>(builder: (_, characterDataState) {
+                                if (characterDataState is DDCharacterDataState){
+                                return Column(
+                                children: [
+                                DDInputText(displayName: "Experience", controller: TextEditingController(text: characterDataState.characterData["experience"]), fieldName: "experience",),
+                                DDInputText(displayName: "Initiative", controller: TextEditingController(text: characterDataState.characterData["initiative"]), fieldName: "initiative",),
+                                DDInputText(displayName: "Armor", controller: TextEditingController(text: characterDataState.characterData["armor"]), fieldName: "armor",),
+                                DDInputText(displayName: "Speed", controller: TextEditingController(text: characterDataState.characterData["speed"]), fieldName: "speed",),
+                                DDInputText(displayName: "Hit Dice", controller: TextEditingController(text: characterDataState.characterData["hit_dice"]), fieldName: "hit_dice",),
+                                DDInputText(displayName: "Death Saves", controller: TextEditingController(text: characterDataState.characterData["death_saves"]), fieldName: "death_saves",),
+                                ]
+                                );
+                                }
+                                else {
+                                  return SizedBox.shrink();
+                                }
+                                }),
                                 DDSwitchPagesController(leftRoute: DDRoutes.GeneralInfo, rightRoute: DDRoutes.StoryNPersonalityInfo,),
 
                                 SizedBox(height: 30,),
@@ -97,7 +111,10 @@ class DDHPScreen extends StatelessWidget {
                     child: IconButton(
                       iconSize: 54,
                       icon: Image.asset(DDCloseLightIcon),
-                      onPressed: () => print('Close button click event'),
+                      onPressed: () => {
+                        Navigator.pushNamed(context, DDRoutes.CharactersList),
+                        context.read<DDCharacterEditBloc>().add(DDClearCharacterDataEvent())
+                      },
                     ),
                   ),
                 ],

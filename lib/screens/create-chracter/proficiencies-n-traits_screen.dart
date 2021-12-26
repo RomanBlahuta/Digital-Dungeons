@@ -1,3 +1,7 @@
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_bloc.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_state.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_events.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 
@@ -64,9 +68,19 @@ class DDProficienciesNTraitsScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Other Proficiencies & Languages", controller: _otherProficienciesNLanguagesController),
-                                DDInputText(fieldName: "Features &Traits", controller: _featuresNTraitsController),
-
+                                BlocBuilder<DDCharacterEditBloc, DDCharacterState>(builder: (_, characterDataState) {
+                                  if (characterDataState is DDCharacterDataState){
+                                    return Column(
+                                        children: [
+                                          DDInputText(displayName: "Other Proficiencies & Languages", controller: TextEditingController(text: characterDataState.characterData["proficiencies"]), fieldName: "proficiencies",),
+                                          DDInputText(displayName: "Features &Traits", controller: TextEditingController(text: characterDataState.characterData["features"]), fieldName: "features",),
+                                    ]
+                                    );
+                                  }
+                                  else {
+                                  return SizedBox.shrink();
+                                  }
+                                }),
                                 DDSwitchPagesController(leftRoute: DDRoutes.CharacteristicsInfo, rightRoute: DDRoutes.AttacksNSpellcastingInfo,),
 
                                 SizedBox(height: 30,),
@@ -82,7 +96,10 @@ class DDProficienciesNTraitsScreen extends StatelessWidget {
                     child: IconButton(
                       iconSize: 54,
                       icon: Image.asset(DDCloseLightIcon),
-                      onPressed: () => print('Close button click event'),
+                      onPressed: () => {
+                        Navigator.pushNamed(context, DDRoutes.CharactersList),
+                        context.read<DDCharacterEditBloc>().add(DDClearCharacterDataEvent())
+                      },
                     ),
                   ),
                 ],

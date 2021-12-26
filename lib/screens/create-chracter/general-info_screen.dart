@@ -1,5 +1,9 @@
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_bloc.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_state.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_events.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../widgets/index.dart';
 
@@ -24,8 +28,7 @@ class DDGeneralInfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
             backgroundColor: DDTheme.lightColor,
             body: SingleChildScrollView(
               child: Stack(
@@ -75,13 +78,23 @@ class DDGeneralInfoScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Name", controller: _nameController),
-                                DDInputText(fieldName: "Player", controller: _playerController),
-                                DDInputText(fieldName: "Level", controller: _levelController),
-                                DDInputText(fieldName: "Class", controller: _classController),
-                                DDInputText(fieldName: "Race", controller: _raceController),
-                                DDInputText(fieldName: "Background", controller: _backgroundController),
-
+                                BlocBuilder<DDCharacterEditBloc, DDCharacterState>(builder: (_, characterDataState) {
+                                  if (characterDataState is DDCharacterDataState){
+                                    return Column(
+                                        children: [
+                                          DDInputText(displayName: "Name", controller: TextEditingController(text: characterDataState.characterData["name"]), fieldName: "name",),
+                                          DDInputText(displayName: "Player", controller: TextEditingController(text: characterDataState.characterData["player"]), fieldName: "player"),
+                                          DDInputText(displayName: "Level", controller: TextEditingController(text: characterDataState.characterData["level"]), fieldName: "level"),
+                                          DDInputText(displayName: "Class", controller: TextEditingController(text: characterDataState.characterData["charClass"]), fieldName: "charClass"),
+                                          DDInputText(displayName: "Race", controller: TextEditingController(text: characterDataState.characterData["race"]), fieldName: "race"),
+                                          DDInputText(displayName: "Background", controller: TextEditingController(text: characterDataState.characterData["background"]), fieldName: "background")
+                                        ]
+                                    );
+                                  }
+                                  else {
+                                    return SizedBox.shrink();
+                                  }
+                                }),
                                 DDSwitchPagesController(rightRoute: DDRoutes.HPInfo,),
                                 SizedBox(height: 30,),
                               ],
@@ -96,13 +109,16 @@ class DDGeneralInfoScreen extends StatelessWidget {
                     child: IconButton(
                       iconSize: 54,
                       icon: Image.asset(DDCloseLightIcon),
-                      onPressed: () => print('Close button click event'),
+                      onPressed: () => {
+                        Navigator.pushNamed(context, DDRoutes.CharactersList),
+                        context.read<DDCharacterEditBloc>().add(DDClearCharacterDataEvent())
+                      },
                     ),
                   ),
                 ],
               ),
             )
-        )
+
     );
   }
 }

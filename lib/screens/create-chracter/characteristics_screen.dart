@@ -1,3 +1,7 @@
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_bloc.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_state.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_events.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 
@@ -69,14 +73,24 @@ class DDCharacteristicsScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                DDInputText(fieldName: "Strength", controller: _strengthController),
-                                DDInputText(fieldName: "Dexterity", controller: _dexterityController),
-                                DDInputText(fieldName: "Constitution", controller: _constitutionController),
-                                DDInputText(fieldName: "Intelect", controller: _intelectController),
-                                DDInputText(fieldName: "Wisdom", controller: _wisdomController),
-                                DDInputText(fieldName: "Charisma", controller: _charismaController),
-                                DDInputText(fieldName: "Perception", controller: _perceptionController),
-
+                                BlocBuilder<DDCharacterEditBloc, DDCharacterState>(builder: (_, characterDataState) {
+                                  if (characterDataState is DDCharacterDataState){
+                                    return Column(
+                                        children: [
+                                          DDInputText(displayName: "Strength", controller: TextEditingController(text: characterDataState.characterData["strength"]), fieldName: "strength",),
+                                          DDInputText(displayName: "Dexterity", controller: TextEditingController(text: characterDataState.characterData["dexterity"]), fieldName: "dexterity",),
+                                          DDInputText(displayName: "Constitution", controller: TextEditingController(text: characterDataState.characterData["constitution"]), fieldName: "constitution",),
+                                          DDInputText(displayName: "Intelect", controller: TextEditingController(text: characterDataState.characterData["intelect"]), fieldName: "intelect",),
+                                          DDInputText(displayName: "Wisdom", controller: TextEditingController(text: characterDataState.characterData["wisdom"]), fieldName: "wisdom",),
+                                          DDInputText(displayName: "Charisma", controller: TextEditingController(text: characterDataState.characterData["charisma"]), fieldName: "charisma",),
+                                          DDInputText(displayName: "Perception", controller: TextEditingController(text: characterDataState.characterData["perception"]), fieldName: "perception",),
+                                    ]
+                                    );
+                                  }
+                                  else {
+                                  return SizedBox.shrink();
+                                  }
+                                }),
                                 DDSwitchPagesController(leftRoute: DDRoutes.StoryNPersonalityInfo, rightRoute: DDRoutes.ProficienciesNTraitsInfo,),
 
                                 SizedBox(height: 30,),
@@ -92,7 +106,10 @@ class DDCharacteristicsScreen extends StatelessWidget {
                     child: IconButton(
                       iconSize: 54,
                       icon: Image.asset(DDCloseLightIcon),
-                      onPressed: () => print('Close button click event'),
+                      onPressed: () => {
+                        Navigator.pushNamed(context, DDRoutes.CharactersList),
+                        context.read<DDCharacterEditBloc>().add(DDClearCharacterDataEvent())
+                      },
                     ),
                   ),
                 ],

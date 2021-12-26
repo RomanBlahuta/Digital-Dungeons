@@ -1,20 +1,13 @@
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
-// import 'package:digitaldungeons/repositories/database_repository.dart';
-// import 'package:digitaldungeons/models/character_data.dart';
+import "package:digitaldungeons/repositories/auth_repository.dart";
 
 import '../widgets/index.dart';
 
 class DDHomeScreen extends StatelessWidget {
 
-  final String userName = "Name Surname";
-  final String userEmail = "example@gmail.com";
-
   @override
   Widget build(BuildContext context) {
-    // final DDDatabaseRepository characterDao = DDDatabaseRepository();
-    // final character = Character("test", "123");
-    // characterDao.saveCharacter(character);
     return SafeArea(
         child: Scaffold(
           backgroundColor: DDTheme.darkColor,
@@ -25,12 +18,12 @@ class DDHomeScreen extends StatelessWidget {
                 SizedBox(
                   height: 12.0,
                 ),
-                DDUserProfile(userName: userName, userEmail: userEmail),
+                DDUserProfile(userName: DDAuthRepository.getCurrentUser()?.displayName, userEmail: DDAuthRepository.getCurrentUser()?.email),
                 SizedBox(
                   height: 44.0,
                 ),
                 DDCategoryButton(
-                    text: "CREATE CHARACTER",
+                    text: "CHARACTERS",
                     onPressed: () {Navigator.pushNamed(context, DDRoutes.CharactersList);},
                     // onPressed: () {print("Click event on Container");},
                     icon: DDHumanIcon,
