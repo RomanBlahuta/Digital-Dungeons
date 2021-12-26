@@ -27,6 +27,20 @@ class DDSwitchCharacterTabEvent extends DDCharacterEvent {
   List<Object?> get props => [context];
 }
 
+class DDEditPrevCharacterFieldEvent  extends DDCharacterEvent {
+  final Map<String, String> characterData;
+  DDEditPrevCharacterFieldEvent(this.characterData);
+  @override
+  List<Object?> get props => [characterData];
+}
+
+class DDDeleteCharacterEvent  extends DDCharacterEvent {
+  final Map<String, String> characterData;
+  DDDeleteCharacterEvent(this.characterData);
+  @override
+  List<Object?> get props => [characterData];
+}
+
 class DDSaveCharacterTabEvent extends DDCharacterEvent {
   final BuildContext context;
 
@@ -45,6 +59,15 @@ class DDAddNewCharacterTabEvent extends DDCharacterEvent {
   List<Object?> get props => [context];
 }
 
+class DDEditCharacterTabEvent extends DDCharacterEvent {
+  final BuildContext context;
+
+  DDEditCharacterTabEvent(this.context);
+
+  @override
+  List<Object?> get props => [context];
+}
+
 class DDEditCharacterFieldEvent extends DDCharacterEvent {
   final String textValue;
   final String inputType;
@@ -53,4 +76,24 @@ class DDEditCharacterFieldEvent extends DDCharacterEvent {
 
   @override
   List<Object?> get props => [textValue, inputType];
+}
+
+class DDGetCharactersEvent extends DDCharacterEvent {
+  DDGetCharactersEvent();
+  @override
+  List<Object?> get props => [];
+}
+
+class DDClearCharacterDataEvent extends DDCharacterEvent {
+  DDClearCharacterDataEvent();
+  @override
+  List<Object?> get props => [];
+}
+
+class DDGetCharacterSheetEvent extends DDCharacterEvent {
+  final BuildContext context;
+  final String documentId;
+  DDGetCharacterSheetEvent(this.context, this.documentId);
+  @override
+  List<Object?> get props => [documentId];
 }

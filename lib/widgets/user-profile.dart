@@ -2,8 +2,8 @@ import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 
 class DDUserProfile extends StatelessWidget {
-  final String userName;
-  final String userEmail;
+  final String? userName;
+  final String? userEmail;
 
   DDUserProfile({Key? key, required this.userName, required this.userEmail}): super(key: key);
 
@@ -37,9 +37,9 @@ class DDUserProfile extends StatelessWidget {
               margin: EdgeInsets.only(bottom: 20),
               child: Column(
                 children: [
-                  Text(userName, style: DDTextTheme.Raleway24BlackBold,),
+                  userName != null ? Text(userName.toString() , style: DDTextTheme.Raleway24BlackBold,) : Text("", style: DDTextTheme.Raleway24BlackBold,),
                   SizedBox(height: 10,),
-                  Text(userEmail, style: DDTextTheme.Raleway20BlackRegular,)
+                  userEmail != null ? Text(userEmail.toString(), style: DDTextTheme.Raleway20BlackRegular,) : Text("", style: DDTextTheme.Raleway20BlackRegular,)
                 ],
               ),
             )

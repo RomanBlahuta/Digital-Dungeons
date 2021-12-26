@@ -1,9 +1,17 @@
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:digitaldungeons/widgets/index.dart';
 import 'package:flutter/material.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_bloc.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_state.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_events.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:developer';
+
+import 'create-chracter/general-info_screen.dart';
 
 class DDCharacterSheetScreen extends StatelessWidget {
-  DDCharacterSheetScreen({ Key? key }) : super(key: key);
+  Map<String, String> characterData;
+  DDCharacterSheetScreen({ Key? key, required this.characterData }) : super(key: key);
 
   final List<String> mockDataMain = [
     'Player123',
@@ -97,120 +105,164 @@ class DDCharacterSheetScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Stack(
             children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 520,
-                    decoration: BoxDecoration(
-                      color: DDTheme.darkColor,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(50),
-                      )
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        SizedBox(
-                          height: 91,
+              BlocBuilder<DDCharacterEditBloc, DDCharacterState>(builder: (_, characterMapState) {
+
+                if (characterMapState is DDCharacterDataState) {
+
+                  // Map<String, String> characterData = characterMapState.characterData;
+                  final List<String> dataMain = [
+                    characterData["player"].toString(),
+                    characterData["level"].toString(),
+                    characterData["charClass"].toString(),
+                    characterData["race"].toString(),
+                    characterData["background"].toString(),
+                  ];
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        width: MediaQuery
+                            .of(context)
+                            .size
+                            .width,
+                        height: 520,
+                        decoration: BoxDecoration(
+                            color: DDTheme.darkColor,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(50),
+                            )
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: DDTheme.accentColor,
-                              child: CircleAvatar(
-                                backgroundColor: DDTheme.darkColor,
-                                backgroundImage: AssetImage(DDKnightIcon),
-                                radius: 73,
-                              ),
-                              radius: 75,
-                            ),
-
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
                             SizedBox(
-                              width: 42,
+                              height: 91,
                             ),
-
-                            Column(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                DDButton(
-                                  text: 'EDIT',
-                                  textStyle: DDTextTheme.Raleway18BlackBold,
-                                  onPressed: () => print('Edit button click event'),
-                                  size: DDButtonSizes.Small,
-                                  color: DDTheme.primaryColor,
-                                  type: DDButtonType.Filled,
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: DDTheme.accentColor,
+                                  child: CircleAvatar(
+                                    backgroundColor: DDTheme.darkColor,
+                                    backgroundImage: AssetImage(DDKnightIcon),
+                                    radius: 73,
+                                  ),
+                                  radius: 75,
                                 ),
 
                                 SizedBox(
-                                  height: 12,
+                                  width: 42,
                                 ),
 
-                                DDButton(
-                                  text: 'DELETE',
-                                  textStyle: DDTextTheme.Raleway18PrimaryBold,
-                                  onPressed: () => print('Delete button click event'),
-                                  size: DDButtonSizes.Small,
-                                  color: DDTheme.primaryColor,
-                                  type: DDButtonType.Outlined,
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    DDButton(
+                                      text: 'EDIT',
+                                      textStyle: DDTextTheme.Raleway18BlackBold,
+                                      onPressed: () => {
+                                        context.read<DDCharacterEditBloc>().add(DDEditPrevCharacterFieldEvent(characterData)),
+                                        Navigator.pushNamed(context, DDRoutes.GeneralInfo)
+                                        // Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
+                                        //   return DDGeneralInfoScreen(characterData: characterData);
+                                        // }))
+                                      },
+                                      size: DDButtonSizes.Small,
+                                      color: DDTheme.primaryColor,
+                                      type: DDButtonType.Filled,
+                                    ),
+
+                                    SizedBox(
+                                      height: 12,
+                                    ),
+
+                                    DDButton(
+                                      text: 'DELETE',
+                                      textStyle: DDTextTheme
+                                          .Raleway18PrimaryBold,
+                                      onPressed: () => {
+                                          context.read<DDCharacterEditBloc>().add(DDDeleteCharacterEvent(characterData)),
+                                          Navigator.pushNamed(context, DDRoutes.CharactersList)
+                                      },
+                                      size: DDButtonSizes.Small,
+                                      color: DDTheme.primaryColor,
+                                      type: DDButtonType.Outlined,
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
+
+                            SizedBox(
+                              height: 24,
+                            ),
+
+                            Text(
+                              characterData["name"].toString(),
+                              textAlign: TextAlign.center,
+                              style: DDTextTheme.Raleway24PrimaryBold,
+                            ),
+
+                            SizedBox(height: 16),
+
+                            DDInfoSection.main(
+                                DDCharacterMainInfo, dataMain)
                           ],
                         ),
+                      ),
 
-                        SizedBox(
-                          height: 24,
-                        ),
-
-                        Text(
-                          'Name Surname',
-                          textAlign: TextAlign.center,
-                          style: DDTextTheme.Raleway24PrimaryBold,
-                        ),
-
-                        SizedBox(height: 16),
-
-                        DDInfoSection.main(DDCharacterMainInfo, mockDataMain)
-                      ],
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: 24,
-                  ),
-                  DDInfoSection.parameter('GENERAL', DDCharacterGeneralInfo, mockDataGeneral),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  DDInfoSection.parameter('CHARACTERISTICS', DDCharacterCharacteristicsInfo, mockDataCharacteristics),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  DDInfoSection.text('STORY & PERSONALITY', DDCharacterStoryInfo, mockDataStory),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  DDInfoSection.text('PROFICIENCIES & TRAITS', DDCharacterProficienciesInfo, mockDataProficiencies),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  DDInfoSection.column_parameters('WEAPONS AND SPELLS', DDCharaterWeaponsMagicInfo, mockDataWeaponsMagic),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  DDInfoSection.text('INVENTORY', DDCharacterInventoryInfo, mockDataInventory),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  DDInfoSection.skills('SKILLS & SAVING THROWS', mockDataSkillsAndSavingThrows),
-                  SizedBox(
-                    height: 24,
-                  ),
-                ],
-              ),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      DDInfoSection.parameter(
+                          'GENERAL', DDCharacterGeneralInfo, mockDataGeneral),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      DDInfoSection.parameter(
+                          'CHARACTERISTICS', DDCharacterCharacteristicsInfo,
+                          mockDataCharacteristics),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      DDInfoSection.text(
+                          'STORY & PERSONALITY', DDCharacterStoryInfo,
+                          mockDataStory),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      DDInfoSection.text(
+                          'PROFICIENCIES & TRAITS',
+                          DDCharacterProficienciesInfo,
+                          mockDataProficiencies),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      DDInfoSection.column_parameters(
+                          'WEAPONS AND SPELLS', DDCharaterWeaponsMagicInfo,
+                          mockDataWeaponsMagic),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      DDInfoSection.text('INVENTORY', DDCharacterInventoryInfo,
+                          mockDataInventory),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      DDInfoSection.skills('SKILLS & SAVING THROWS',
+                          mockDataSkillsAndSavingThrows),
+                      SizedBox(
+                        height: 24,
+                      ),
+                    ],
+                  );
+                }
+                else {
+                  log(characterMapState.runtimeType.toString());
+                  return SizedBox.shrink();
+                }
+              }),
 
               Positioned(
                 top: 24,
@@ -218,7 +270,7 @@ class DDCharacterSheetScreen extends StatelessWidget {
                 child: IconButton(
                   iconSize: 54,
                   icon: Image.asset(DDCloseIcon),
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () => Navigator.pushNamed(context, DDRoutes.CharactersList),
                 ),
               )
             ],

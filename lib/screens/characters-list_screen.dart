@@ -1,3 +1,7 @@
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_bloc.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_state.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_events.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:digitaldungeons/utils/navigation.dart';
 import 'package:digitaldungeons/widgets/app-bar.dart';
@@ -31,7 +35,9 @@ class DDCharactersListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return BlocProvider<DDCharacterEditBloc>(
+        create: (providerContext) => DDCharacterEditBloc()..add(DDGetCharactersEvent()),
+        child:  SafeArea(
         child: Scaffold(
           backgroundColor: DDTheme.darkColor,
           appBar: DDAppBar(),
@@ -72,31 +78,17 @@ class DDCharactersListScreen extends StatelessWidget {
                   padding: EdgeInsets.only(left: 20, top: 22, bottom: 22),
                   child: Text("SAVED CHARACTERS", style: DDTextTheme.Raleway30AccentBold,),
                 ),
-                (_savedCharacters.length > 0)
-                    ?
-                ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    padding: const EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 20),
-                    itemCount: _savedCharacters.length,
-                    itemBuilder: (context, index) {
-                      return DDListButton(
-                        name: _savedCharacters[index]['name'],
-                        info: _savedCharacters[index]['info'],
-                        icon: _savedCharacters[index]['icon'],
-                        onPressed: () {Navigator.pushNamed(context, DDRoutes.CharacterSheet);},
-                      );
-                    }
-                )
-                    :
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: Text(
-                    "You don't have any saved characters yet",
-                    style: DDTextTheme.Raleway18WhiteRegular,
-                    textAlign: TextAlign.center,
-                  ),
-                )
+                BlocBuilder<DDCharacterEditBloc, DDCharacterState>(builder: (_, characterListState) {
+                  List<dynamic> _characters;
+                  if (characterListState is DDCharactersListState){
+                    _characters = characterListState.charactersList;
+                    return _characterList(_characters, context);
+                  }
+                  else {
+                    return _characterList([], context);
+                  }
+
+                })
               ],
             ),
           ),
@@ -107,9 +99,41 @@ class DDCharactersListScreen extends StatelessWidget {
             splashColor: DDTheme.primaryColor,
           ),
         ),
-    );
+    ));
   }
 }
+Widget _characterList(List<dynamic> _characters, BuildContext context) {
+  return (_characters.length > 0)
+      ?
+  ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      padding: const EdgeInsets.only(
+          left: 20, right: 20, top: 0, bottom: 20),
+      itemCount: _characters.length,
+      itemBuilder: (context, index) {
+        return DDListButton(
+          name: _characters[index].data()['name'],
+          info: _characters[index].data()['race'],
+          icon: DDKnightIcon,
+          onPressed: () {
+            context.read<DDCharacterEditBloc>().add(DDGetCharacterSheetEvent(context, _characters[index].id));
 
-
+          },
+        );
+      }
+  )
+      :
+  SizedBox(
+    width: MediaQuery
+        .of(context)
+        .size
+        .width,
+    child: Text(
+      "You don't have any saved characters yet",
+      style: DDTextTheme.Raleway18WhiteRegular,
+      textAlign: TextAlign.center,
+    ),
+  );
+}
 

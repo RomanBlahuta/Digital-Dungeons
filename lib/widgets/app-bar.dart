@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-
+import "package:digitaldungeons/repositories/auth_repository.dart";
 import '../utils/index.dart';
 
 class DDAppBar extends StatelessWidget implements PreferredSizeWidget {
+
   const DDAppBar({Key? key}) : super(key: key);
 
   @override
@@ -23,7 +24,11 @@ class DDAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: DDTextTheme.Raleway20BlackSemiBold,),
       actions: <Widget> [
         IconButton(
-            onPressed: () { print('Click!'); Navigator.pushNamed(context, DDRoutes.Welcome); },
+            onPressed: () {
+              Navigator.pushNamed(context, DDRoutes.Welcome);
+              DDAuthRepository authRepository = DDAuthRepository();
+              authRepository.signOut();
+              },
             icon: const Icon(
               Icons.logout,
               color: DDTheme.darkColor,
