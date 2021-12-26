@@ -1,3 +1,7 @@
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_bloc.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_state.dart';
+import 'package:digitaldungeons/blocs/character/character-edit/character-edit_events.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:digitaldungeons/utils/index.dart';
 import 'package:flutter/material.dart';
 
@@ -66,11 +70,21 @@ class DDAttacksNSpellcastingScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                // DDInputText(fieldName: "Name", controller: _nameController01),
-                                // DDInputText(fieldName: "ATK Bonus", controller: _ATKBonusController01),
-                                // DDInputText(fieldName: "Damage/Type", controller: _damageTypeController01),
-                                // DDInputText(fieldName: "Description", controller: _descriptionController01),
-
+                                BlocBuilder<DDCharacterEditBloc, DDCharacterState>(builder: (_, characterDataState) {
+                                  if (characterDataState is DDCharacterDataState){
+                                    return Column(
+                                        children: [
+                                          DDInputText(displayName: "Name", controller: TextEditingController(text: characterDataState.characterData["attack_name"]), fieldName: "attack_name",),
+                                          DDInputText(displayName: "ATK Bonus", controller: TextEditingController(text: characterDataState.characterData["atk_bonus"]), fieldName: "atk_bonus",),
+                                          DDInputText(displayName: "Damage/Type", controller: TextEditingController(text: characterDataState.characterData["damage_type"]), fieldName: "damage_type",),
+                                          DDInputText(displayName: "Description", controller: TextEditingController(text: characterDataState.characterData["description"]), fieldName: "description",),
+                                    ]
+                                    );
+                                  }
+                                  else {
+                                  return SizedBox.shrink();
+                                  }
+                                }),
                                 Divider(
                                   color: DDTheme.accentColor,
                                   thickness: 2.0,
@@ -91,7 +105,10 @@ class DDAttacksNSpellcastingScreen extends StatelessWidget {
                     child: IconButton(
                       iconSize: 54,
                       icon: Image.asset(DDCloseLightIcon),
-                      onPressed: () => print('Close button click event'),
+                      onPressed: () => {
+                        Navigator.pushNamed(context, DDRoutes.CharactersList),
+                        context.read<DDCharacterEditBloc>().add(DDClearCharacterDataEvent())
+                      },
                     ),
                   ),
                 ],

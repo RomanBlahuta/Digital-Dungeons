@@ -14,7 +14,8 @@ class DDSignUpBloc extends Bloc<DDSignUpEvent, DDSignUpState> {
     if (event is DDSignUpSubmitEvent) {
       // send request if valid, else pop-up or error msg
       try {
-        await _auth.signUp(state.email, state.password);
+        UserCredential userCreds = await _auth.signUp(state.email, state.password);
+        userCreds.user?.updateDisplayName(state.name);
         ScaffoldMessenger.of(event.context).showSnackBar(
           SnackBar(
             backgroundColor: Colors.blueGrey,

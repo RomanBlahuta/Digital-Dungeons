@@ -52,9 +52,9 @@ class MyApp extends StatelessWidget {
           else if (settings.name == DDRoutes.Home) {
             return MaterialPageRoute(builder: (context) => DDHomeScreen());
           }
-          else if (settings.name == DDRoutes.CharacterSheet) {
-            return MaterialPageRoute(builder: (context) => DDCharacterSheetScreen());
-          }
+          // else if (settings.name == DDRoutes.CharacterSheet) {
+          //   return MaterialPageRoute(builder: (context) => DDCharacterSheetScreen());
+          // }
           else if (settings.name == DDRoutes.CharactersList) {
             return MaterialPageRoute(builder: (context) => DDCharactersListScreen());
           }

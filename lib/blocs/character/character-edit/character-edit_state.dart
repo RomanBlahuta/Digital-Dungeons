@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class DDCharacterState extends Equatable {
@@ -17,14 +18,12 @@ class DDCharacterDataState extends DDCharacterState {
   List<Object?> get props => [characterData];
 }
 
-// // todo: add more
-//
-// class DDCharacterEquipmentState extends DDCharacterState {
-//   final String money;
-//   final String equipment;
-//
-//   DDCharacterEquipmentState(this.money, this.equipment);
-//
-//   @override
-//   List<Object?> get props => [money, equipment];
-// }
+class DDCharactersListState extends DDCharacterState {
+
+  final List<QueryDocumentSnapshot<Map<String, dynamic>>> charactersList;
+  DDCharactersListState(this.charactersList);
+
+  @override
+  List<Object?> get props => [charactersList];
+}
+

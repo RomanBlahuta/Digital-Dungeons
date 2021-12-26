@@ -13,6 +13,10 @@ class DDAuthRepository extends Repository {
     return _auth.signInWithEmailAndPassword(email: email, password: password);
   }
 
+  Future<void> signOut() async {
+    await _auth.signOut();
+  }
+
   static User? getCurrentUser() {
     return FirebaseAuth.instance.currentUser;
   }
